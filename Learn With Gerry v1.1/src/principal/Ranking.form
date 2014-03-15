@@ -63,7 +63,7 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="scrollRanking" pref="719" max="32767" attributes="0"/>
+                  <Component id="scrollRanking" pref="727" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblRanking" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -113,7 +113,7 @@
         <Component class="javax.swing.JLabel" name="lblRanking">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="whola" size="28" style="0"/>
+              <Font name="Moon Flower Bold" size="36" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -126,7 +126,7 @@
         <Component class="javax.swing.JLabel" name="LogoLWG">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lighthouse Personal Use" size="14" style="0"/>
+              <Font name="olivier" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>

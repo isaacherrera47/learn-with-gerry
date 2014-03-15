@@ -61,7 +61,7 @@ public class PerfilRanking extends javax.swing.JPanel {
         lblNivel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         pnlLateral.add(lblNivel);
 
-        lblNombre.setFont(new java.awt.Font("Aaargh", 0, 16)); // NOI18N
+        lblNombre.setFont(new java.awt.Font("Please write me a song", 0, 20)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/pf.png"))); // NOI18N
@@ -116,7 +116,7 @@ public class PerfilRanking extends javax.swing.JPanel {
             .addComponent(pnlLateral, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNick)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

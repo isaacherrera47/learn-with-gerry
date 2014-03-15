@@ -90,7 +90,7 @@ public class DatosJugador extends javax.swing.JDialog {
         });
         pnlInferior.add(btnAlias);
 
-        lblNombre.setFont(new java.awt.Font("Aaargh", 0, 18)); // NOI18N
+        lblNombre.setFont(new java.awt.Font("Please write me a song", 0, 20)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/pf.png"))); // NOI18N

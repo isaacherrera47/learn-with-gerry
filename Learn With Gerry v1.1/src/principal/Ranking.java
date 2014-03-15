@@ -38,13 +38,13 @@ public class Ranking extends javax.swing.JDialog {
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/championb.png"))); // NOI18N
 
-        lblRanking.setFont(new java.awt.Font("whola", 0, 28)); // NOI18N
+        lblRanking.setFont(new java.awt.Font("Moon Flower Bold", 0, 36)); // NOI18N
         lblRanking.setForeground(new java.awt.Color(255, 255, 255));
         lblRanking.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRanking.setText("Ranking");
         lblRanking.setToolTipText("");
 
-        LogoLWG.setFont(new java.awt.Font("Lighthouse Personal Use", 0, 14)); // NOI18N
+        LogoLWG.setFont(new java.awt.Font("olivier", 0, 14)); // NOI18N
         LogoLWG.setForeground(new java.awt.Color(255, 255, 255));
         LogoLWG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/olympic.png"))); // NOI18N
         LogoLWG.setText("Learn with Gerry");
@@ -94,7 +94,7 @@ public class Ranking extends javax.swing.JDialog {
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(scrollRanking, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                .addComponent(scrollRanking, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblRanking, javax.swing.GroupLayout.Alignment.TRAILING)

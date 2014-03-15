@@ -66,7 +66,7 @@ public class Logros extends javax.swing.JDialog {
         pnlPrincipal.setMinimumSize(new java.awt.Dimension(1200, 600));
         pnlPrincipal.setPreferredSize(new java.awt.Dimension(1200, 600));
 
-        lwg.setFont(new java.awt.Font("Lighthouse Personal Use", 0, 12)); // NOI18N
+        lwg.setFont(new java.awt.Font("olivier", 0, 14)); // NOI18N
         lwg.setForeground(new java.awt.Color(255, 255, 255));
         lwg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lwg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/olympic.png"))); // NOI18N
@@ -134,7 +134,7 @@ public class Logros extends javax.swing.JDialog {
                 .addComponent(btnDesbloqueados, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(imgFondo))
             .addComponent(scrollLogros)
         );

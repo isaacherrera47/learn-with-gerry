@@ -32,12 +32,13 @@ public class Principal extends javax.swing.JFrame {
         setResizable(false);
 
         btnIniciarJuego.setBackground(new java.awt.Color(204, 51, 51));
-        btnIniciarJuego.setFont(new java.awt.Font("Poetsen One", 0, 18)); // NOI18N
+        btnIniciarJuego.setFont(new java.awt.Font("Please write me a song", 0, 24)); // NOI18N
         btnIniciarJuego.setForeground(new java.awt.Color(254, 254, 254));
         btnIniciarJuego.setContentAreaFilled(false);
         btnIniciarJuego.setOpaque(true);
         btnIniciarJuego.setText("Iniciar Juego");
         btnIniciarJuego.setContentAreaFilled(false);
+        btnIniciarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIniciarJuego.setFocusPainted(false);
         btnIniciarJuego.setOpaque(true);
         btnIniciarJuego.setRolloverEnabled(false);
