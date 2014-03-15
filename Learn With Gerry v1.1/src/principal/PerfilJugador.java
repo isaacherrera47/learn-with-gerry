@@ -304,7 +304,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         lblOpciones.setFont(new java.awt.Font("Walkway UltraBold", 0, 18)); // NOI18N
 
         btnSonido.setBackground(new java.awt.Color(123, 211, 200));
-        btnSonido.setFont(new java.awt.Font("Harbell Personal Use Only", 0, 18)); // NOI18N
+        btnSonido.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         btnSonido.setForeground(new java.awt.Color(255, 255, 255));
         btnSonido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/dsl.png"))); // NOI18N
         btnSonido.setSelected(true);
@@ -329,7 +329,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         lblColor.setText("Color");
 
         btnColor.setBackground(new java.awt.Color(221, 68, 73));
-        btnColor.setFont(new java.awt.Font("Harbell Personal Use Only", 0, 18)); // NOI18N
+        btnColor.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         btnColor.setForeground(new java.awt.Color(255, 255, 255));
         btnColor.setText("Salmón");
         btnColor.setBorderPainted(false);
@@ -342,7 +342,7 @@ public class PerfilJugador extends javax.swing.JFrame {
             }
         });
 
-        btnAcerca.setFont(new java.awt.Font("Harbell Personal Use Only", 0, 18)); // NOI18N
+        btnAcerca.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         btnAcerca.setForeground(new java.awt.Color(102, 102, 102));
         btnAcerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/sh.png"))); // NOI18N
         btnAcerca.setText("Acerca de...");
@@ -425,7 +425,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         lblFondo.setText("Color de fondo - Learn with Gerry");
 
         btnNaranja.setBackground(new java.awt.Color(255, 102, 51));
-        btnNaranja.setFont(new java.awt.Font("Harbell Personal Use Only", 0, 18)); // NOI18N
+        btnNaranja.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         btnNaranja.setForeground(new java.awt.Color(255, 255, 255));
         btnNaranja.setText("Otoño");
         btnNaranja.setBorderPainted(false);
@@ -439,7 +439,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         });
 
         btnRosa.setBackground(new java.awt.Color(255, 102, 102));
-        btnRosa.setFont(new java.awt.Font("Harbell Personal Use Only", 0, 18)); // NOI18N
+        btnRosa.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         btnRosa.setForeground(new java.awt.Color(255, 255, 255));
         btnRosa.setText("Pasteles");
         btnRosa.setBorderPainted(false);
@@ -453,7 +453,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         });
 
         btnMorado.setBackground(new java.awt.Color(102, 102, 153));
-        btnMorado.setFont(new java.awt.Font("Harbell Personal Use Only", 0, 18)); // NOI18N
+        btnMorado.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         btnMorado.setForeground(new java.awt.Color(255, 255, 255));
         btnMorado.setText("Mora");
         btnMorado.setBorderPainted(false);
@@ -467,7 +467,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         });
 
         btnVerde.setBackground(new java.awt.Color(51, 153, 51));
-        btnVerde.setFont(new java.awt.Font("Harbell Personal Use Only", 0, 18)); // NOI18N
+        btnVerde.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         btnVerde.setForeground(new java.awt.Color(255, 255, 255));
         btnVerde.setText("Pastos");
         btnVerde.setBorderPainted(false);
@@ -481,7 +481,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         });
 
         btnAzulCielo.setBackground(new java.awt.Color(102, 204, 204));
-        btnAzulCielo.setFont(new java.awt.Font("Harbell Personal Use Only", 0, 18)); // NOI18N
+        btnAzulCielo.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         btnAzulCielo.setForeground(new java.awt.Color(255, 255, 255));
         btnAzulCielo.setText("Cielo");
         btnAzulCielo.setBorderPainted(false);
@@ -495,7 +495,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         });
 
         btnAzulOceano.setBackground(new java.awt.Color(0, 153, 153));
-        btnAzulOceano.setFont(new java.awt.Font("Harbell Personal Use Only", 0, 18)); // NOI18N
+        btnAzulOceano.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         btnAzulOceano.setForeground(new java.awt.Color(255, 255, 255));
         btnAzulOceano.setText("Océano");
         btnAzulOceano.setBorderPainted(false);
@@ -509,7 +509,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         });
 
         btnRojo.setBackground(new java.awt.Color(204, 51, 51));
-        btnRojo.setFont(new java.awt.Font("Harbell Personal Use Only", 0, 18)); // NOI18N
+        btnRojo.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         btnRojo.setForeground(new java.awt.Color(255, 255, 255));
         btnRojo.setText("Salmón");
         btnRojo.setBorderPainted(false);
@@ -600,6 +600,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/gear.png"))); // NOI18N
         btnOpciones.setBorderPainted(false);
         btnOpciones.setContentAreaFilled(false);
+        btnOpciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnOpciones.setFocusPainted(false);
         btnOpciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnOpciones.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -625,6 +626,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/easel.png"))); // NOI18N
         btnEstadisticas.setBorderPainted(false);
         btnEstadisticas.setContentAreaFilled(false);
+        btnEstadisticas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEstadisticas.setFocusPainted(false);
         btnEstadisticas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEstadisticas.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -650,6 +652,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnGrados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/bookshelf.png"))); // NOI18N
         btnGrados.setBorderPainted(false);
         btnGrados.setContentAreaFilled(false);
+        btnGrados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGrados.setFocusPainted(false);
         btnGrados.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnGrados.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -675,6 +678,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnRanking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/barchart.png"))); // NOI18N
         btnRanking.setBorderPainted(false);
         btnRanking.setContentAreaFilled(false);
+        btnRanking.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRanking.setFocusPainted(false);
         btnRanking.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnRanking.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -700,6 +704,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnLogros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/trophy.png"))); // NOI18N
         btnLogros.setBorderPainted(false);
         btnLogros.setContentAreaFilled(false);
+        btnLogros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogros.setFocusPainted(false);
         btnLogros.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnLogros.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -725,6 +730,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/briefcase.png"))); // NOI18N
         btnInformacion.setBorderPainted(false);
         btnInformacion.setContentAreaFilled(false);
+        btnInformacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInformacion.setFocusPainted(false);
         btnInformacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         btnInformacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -749,6 +755,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnPruebas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/gamecontroller.png"))); // NOI18N
         btnPruebas.setBorderPainted(false);
         btnPruebas.setContentAreaFilled(false);
+        btnPruebas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPruebas.setFocusPainted(false);
         btnPruebas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnPruebas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -773,6 +780,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/power.png"))); // NOI18N
         btnCerrarSesion.setBorderPainted(false);
         btnCerrarSesion.setContentAreaFilled(false);
+        btnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCerrarSesion.setFocusPainted(false);
         btnCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);

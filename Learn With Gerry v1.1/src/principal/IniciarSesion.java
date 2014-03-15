@@ -63,7 +63,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         lblH2 = new org.jdesktop.swingx.JXLabel();
         lblH3 = new org.jdesktop.swingx.JXLabel();
 
-        notif.setFont(new java.awt.Font("Metro", 0, 18)); // NOI18N
+        notif.setFont(new java.awt.Font("Please write me a song", 0, 18)); // NOI18N
         notif.setForeground(new java.awt.Color(255, 255, 255));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,6 +74,7 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/chat.png"))); // NOI18N
         btnAyuda.setContentAreaFilled(false);
+        btnAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAyuda.setFocusPainted(false);
         btnAyuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +86,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/profle.png"))); // NOI18N
         btnRegistrarse.setContentAreaFilled(false);
+        btnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrarse.setFocusPainted(false);
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +96,7 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         btnInicioSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/gerbtn.png"))); // NOI18N
         btnInicioSesion.setContentAreaFilled(false);
+        btnInicioSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicioSesion.setFocusPainted(false);
         btnInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,16 +118,17 @@ public class IniciarSesion extends javax.swing.JFrame {
         txtUsuario.setCaretColor(new java.awt.Color(173, 173, 173));
         txtUsuario.setColorDeTextoBackground(new java.awt.Color(153, 153, 153));
         txtUsuario.setDescripcion("Usuario");
-        txtUsuario.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Please write me a song", 0, 24)); // NOI18N
         txtUsuario.setLeft(java.lang.Boolean.FALSE);
 
         btnIniciar.setBackground(new java.awt.Color(0, 153, 153));
-        btnIniciar.setFont(new java.awt.Font("Patrick Hand SC", 0, 24)); // NOI18N
+        btnIniciar.setFont(new java.awt.Font("Moon Flower Bold", 0, 30)); // NOI18N
         btnIniciar.setForeground(new java.awt.Color(255, 255, 255));
         btnIniciar.setText("Jugar");
         btnIniciar.setContentAreaFilled(false);
         btnIniciar.setOpaque(true);
         btnIniciar.setContentAreaFilled(false);
+        btnIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIniciar.setFocusPainted(false);
         btnIniciar.setOpaque(true);
         btnIniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +137,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             }
         });
 
-        cbxAnimalPref.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        cbxAnimalPref.setFont(new java.awt.Font("Please write me a song", 0, 24)); // NOI18N
         cbxAnimalPref.setForeground(new java.awt.Color(102, 102, 102));
         cbxAnimalPref.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Perro", "Gato", "Jirafa", "Pez", "Víbora", "Mono", "Oso", "Vaca", "Burro", "Caballo", "Pollo", "Pato", "Ganso", "Gallina", "Ratón", "Águila", "Conejo", "Delfín", "Camaleón", "Cocodrilo", "León", "Tigre", "Tucán" }));
         cbxAnimalPref.setBorder(null);
@@ -196,6 +200,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cancelar.png"))); // NOI18N
         btnCancelar.setBorderPainted(false);
         btnCancelar.setContentAreaFilled(false);
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.setFocusPainted(false);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +212,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/agregar.png"))); // NOI18N
         btnGuardar.setBorderPainted(false);
         btnGuardar.setContentAreaFilled(false);
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.setFocusPainted(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,28 +225,28 @@ public class IniciarSesion extends javax.swing.JFrame {
         txtNombre.setCaretColor(new java.awt.Color(173, 173, 173));
         txtNombre.setColorDeTextoBackground(new java.awt.Color(153, 153, 153));
         txtNombre.setDescripcion("Nombre");
-        txtNombre.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Please write me a song", 0, 18)); // NOI18N
         pnlRegistro.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 200, 60));
 
         txtApMaterno.setForeground(new java.awt.Color(102, 102, 102));
         txtApMaterno.setCaretColor(new java.awt.Color(173, 173, 173));
         txtApMaterno.setColorDeTextoBackground(new java.awt.Color(153, 153, 153));
         txtApMaterno.setDescripcion("Segundo apellido");
-        txtApMaterno.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        txtApMaterno.setFont(new java.awt.Font("Please write me a song", 0, 18)); // NOI18N
         pnlRegistro.add(txtApMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 200, 60));
 
         txtApPaterno.setForeground(new java.awt.Color(102, 102, 102));
         txtApPaterno.setCaretColor(new java.awt.Color(173, 173, 173));
         txtApPaterno.setColorDeTextoBackground(new java.awt.Color(153, 153, 153));
         txtApPaterno.setDescripcion("Primer apellido");
-        txtApPaterno.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        txtApPaterno.setFont(new java.awt.Font("Please write me a song", 0, 18)); // NOI18N
         pnlRegistro.add(txtApPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 200, 60));
 
         txtNombreUsuario.setForeground(new java.awt.Color(102, 102, 102));
         txtNombreUsuario.setCaretColor(new java.awt.Color(173, 173, 173));
         txtNombreUsuario.setColorDeTextoBackground(new java.awt.Color(153, 153, 153));
         txtNombreUsuario.setDescripcion("Nombre de usuario");
-        txtNombreUsuario.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        txtNombreUsuario.setFont(new java.awt.Font("Please write me a song", 0, 18)); // NOI18N
         txtNombreUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtNombreUsuarioFocusLost(evt);
@@ -248,13 +254,13 @@ public class IniciarSesion extends javax.swing.JFrame {
         });
         pnlRegistro.add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 200, 70));
 
-        cbxGrado.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        cbxGrado.setFont(new java.awt.Font("Please write me a song", 0, 18)); // NOI18N
         cbxGrado.setForeground(new java.awt.Color(102, 102, 102));
         cbxGrado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grado", "Primero", "Segundo", "Tercero", "Cuarto", "Quinto", "Sexto" }));
         cbxGrado.setBorder(null);
         pnlRegistro.add(cbxGrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 200, 70));
 
-        cbxAnimalFavorito.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        cbxAnimalFavorito.setFont(new java.awt.Font("Please write me a song", 0, 18)); // NOI18N
         cbxAnimalFavorito.setForeground(new java.awt.Color(102, 102, 102));
         cbxAnimalFavorito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Animal favorito", "Perro", "Gato", "Jirafa", "Pez", "Víbora", "Mono", "Oso", "Vaca", "Burro", "Caballo", "Pollo", "Pato", "Ganso", "Gallina", "Ratón", "Águila", "Conejo", "Delfín", "Camaleón", "Cocodrilo", "León", "Tigre", "Tucán" }));
         cbxAnimalFavorito.setBorder(null);
@@ -273,7 +279,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         pnlAyuda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setBackground(new java.awt.Color(0, 153, 102));
-        lblTitulo.setFont(new java.awt.Font("Odin Rounded", 0, 24)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Please write me a song", 0, 24)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(102, 102, 102));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/infohelp.png"))); // NOI18N
@@ -284,20 +290,20 @@ public class IniciarSesion extends javax.swing.JFrame {
         lblH1.setForeground(new java.awt.Color(102, 102, 102));
         lblH1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/us.PNG"))); // NOI18N
         lblH1.setText("En este campo escribe tu nombre de usuario");
-        lblH1.setFont(new java.awt.Font("Poetsen One", 0, 14)); // NOI18N
+        lblH1.setFont(new java.awt.Font("Moon Flower Bold", 0, 24)); // NOI18N
         pnlAyuda.add(lblH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 700, 111));
 
         lblH2.setForeground(new java.awt.Color(102, 102, 102));
         lblH2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/pass.PNG"))); // NOI18N
         lblH2.setText("En este campo debes seleccionar tu mascota favorita.\nRecuerda que debe ser la misma que escogiste al registrarte.");
-        lblH2.setFont(new java.awt.Font("Poetsen One", 0, 14)); // NOI18N
+        lblH2.setFont(new java.awt.Font("Moon Flower Bold", 0, 24)); // NOI18N
         lblH2.setLineWrap(true);
         pnlAyuda.add(lblH2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 670, 111));
 
         lblH3.setForeground(new java.awt.Color(102, 102, 102));
         lblH3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/profle2.png"))); // NOI18N
         lblH3.setText("Selecciona esta opción para registrarte y disfrutar de la máxima experiencia de juego con Gerry y sus amigos.");
-        lblH3.setFont(new java.awt.Font("Poetsen One", 0, 14)); // NOI18N
+        lblH3.setFont(new java.awt.Font("Moon Flower Bold", 0, 24)); // NOI18N
         lblH3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         lblH3.setIconTextGap(20);
         lblH3.setLineWrap(true);

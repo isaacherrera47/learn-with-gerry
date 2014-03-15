@@ -192,7 +192,7 @@ public class Grado extends javax.swing.JDialog {
 
         pnlGrado.add(slptGrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 800, 480));
 
-        jLabel2.setFont(new java.awt.Font("Lighthouse Personal Use", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/olympic.png"))); // NOI18N

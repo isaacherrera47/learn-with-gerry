@@ -219,14 +219,14 @@ public class Estadistica extends javax.swing.JDialog {
         });
         pnlEstadistica.add(btnEsSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, 100, 30));
 
-        jLabel1.setFont(new java.awt.Font("Lighthouse Personal Use", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/olympic.png"))); // NOI18N
         jLabel1.setText("Learn With Gerry");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        pnlEstadistica.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 20, 130, 90));
+        pnlEstadistica.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 0, 130, 90));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/animal174.png"))); // NOI18N
         pnlEstadistica.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 210, 390, 390));
