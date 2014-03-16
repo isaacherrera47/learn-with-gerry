@@ -35,17 +35,18 @@ public class PopupLogro extends javax.swing.JPanel {
         add(lblIcono);
         lblIcono.setBounds(0, 0, 96, 100);
 
-        lblTituloLogro.setFont(new java.awt.Font("Patrick Hand SC", 0, 14)); // NOI18N
+        lblTituloLogro.setFont(new java.awt.Font("Please write me a song", 0, 18)); // NOI18N
         lblTituloLogro.setForeground(new java.awt.Color(102, 102, 102));
         lblTituloLogro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTituloLogro.setText("Conejito veeeelooooz");
+        lblTituloLogro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         add(lblTituloLogro);
         lblTituloLogro.setBounds(106, 0, 290, 28);
 
         lblDescLogro.setForeground(new java.awt.Color(102, 102, 102));
         lblDescLogro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDescLogro.setText("Inicia por primera vez una partida");
-        lblDescLogro.setFont(new java.awt.Font("Walkway UltraBold", 0, 14)); // NOI18N
+        lblDescLogro.setFont(new java.awt.Font("Are You Freakin' Serious ", 0, 14)); // NOI18N
         lblDescLogro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblDescLogro.setLineWrap(true);
         lblDescLogro.setTextAlignment(org.jdesktop.swingx.JXLabel.TextAlignment.CENTER);

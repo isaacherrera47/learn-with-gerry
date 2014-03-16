@@ -142,7 +142,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         cbxAnimalPref.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Perro", "Gato", "Jirafa", "Pez", "Víbora", "Mono", "Oso", "Vaca", "Burro", "Caballo", "Pollo", "Pato", "Ganso", "Gallina", "Ratón", "Águila", "Conejo", "Delfín", "Camaleón", "Cocodrilo", "León", "Tigre", "Tucán" }));
         cbxAnimalPref.setBorder(null);
 
-        lblTituloSesion.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        lblTituloSesion.setFont(new java.awt.Font("Please write me a song", 0, 24)); // NOI18N
         lblTituloSesion.setForeground(new java.awt.Color(102, 102, 102));
         lblTituloSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/key.png"))); // NOI18N
         lblTituloSesion.setText("¡Inicia ya!");
@@ -191,11 +191,11 @@ public class IniciarSesion extends javax.swing.JFrame {
         pnlRegistro.setOrientacion(org.edisoncor.gui.panel.PanelLlamada.Orientacion.TOP);
         pnlRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelTitulo.setFont(new java.awt.Font("Fairview Regular", 0, 36)); // NOI18N
+        labelTitulo.setFont(new java.awt.Font("Give It Your Heart", 0, 36)); // NOI18N
         labelTitulo.setForeground(new java.awt.Color(102, 102, 102));
         labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/nvoUsuariohelp.png"))); // NOI18N
         labelTitulo.setText("Mi registro - Learn with Gerry");
-        pnlRegistro.add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, -1, -1));
+        pnlRegistro.add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cancelar.png"))); // NOI18N
         btnCancelar.setBorderPainted(false);
@@ -290,20 +290,20 @@ public class IniciarSesion extends javax.swing.JFrame {
         lblH1.setForeground(new java.awt.Color(102, 102, 102));
         lblH1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/us.PNG"))); // NOI18N
         lblH1.setText("En este campo escribe tu nombre de usuario");
-        lblH1.setFont(new java.awt.Font("Moon Flower Bold", 0, 24)); // NOI18N
+        lblH1.setFont(new java.awt.Font("KG Beneath Your Beautiful Chunk", 0, 20)); // NOI18N
         pnlAyuda.add(lblH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 700, 111));
 
         lblH2.setForeground(new java.awt.Color(102, 102, 102));
         lblH2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/pass.PNG"))); // NOI18N
         lblH2.setText("En este campo debes seleccionar tu mascota favorita.\nRecuerda que debe ser la misma que escogiste al registrarte.");
-        lblH2.setFont(new java.awt.Font("Moon Flower Bold", 0, 24)); // NOI18N
+        lblH2.setFont(new java.awt.Font("KG Beneath Your Beautiful Chunk", 0, 20)); // NOI18N
         lblH2.setLineWrap(true);
         pnlAyuda.add(lblH2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 670, 111));
 
         lblH3.setForeground(new java.awt.Color(102, 102, 102));
         lblH3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/profle2.png"))); // NOI18N
         lblH3.setText("Selecciona esta opción para registrarte y disfrutar de la máxima experiencia de juego con Gerry y sus amigos.");
-        lblH3.setFont(new java.awt.Font("Moon Flower Bold", 0, 24)); // NOI18N
+        lblH3.setFont(new java.awt.Font("KG Beneath Your Beautiful Chunk", 0, 20)); // NOI18N
         lblH3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         lblH3.setIconTextGap(20);
         lblH3.setLineWrap(true);

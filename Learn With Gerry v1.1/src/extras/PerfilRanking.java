@@ -15,32 +15,21 @@ public class PerfilRanking extends javax.swing.JPanel {
     private void initComponents() {
 
         pnlLateral = new javax.swing.JPanel();
-        lblLogros = new javax.swing.JLabel();
         btnAlias = new javax.swing.JButton();
         lblNivel = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         lblNick = new javax.swing.JLabel();
         lblGrado = new javax.swing.JLabel();
-        jcMousePanel1 = new jcMousePanel.jcMousePanel();
+        avatar = new jcMousePanel.jcMousePanel();
 
         setBackground(new java.awt.Color(204, 51, 51));
         setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
         setMinimumSize(new java.awt.Dimension(480, 280));
         setPreferredSize(new java.awt.Dimension(480, 280));
 
-        pnlLateral.setLayout(new org.jdesktop.swingx.VerticalLayout());
+        pnlLateral.setLayout(new java.awt.GridLayout(2, 2));
 
-        lblLogros.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
-        lblLogros.setForeground(new java.awt.Color(204, 51, 51));
-        lblLogros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/chalkboard.png"))); // NOI18N
-        lblLogros.setText("80");
-        lblLogros.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Logros", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Patrick Hand SC", 0, 14), new java.awt.Color(102, 102, 102))); // NOI18N
-        lblLogros.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblLogros.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        pnlLateral.add(lblLogros);
-
-        btnAlias.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        btnAlias.setFont(new java.awt.Font("Are You Freakin' Serious ", 1, 24)); // NOI18N
         btnAlias.setForeground(new java.awt.Color(204, 51, 51));
         btnAlias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/packman.png"))); // NOI18N
         btnAlias.setText("Pantera");
@@ -48,16 +37,18 @@ public class PerfilRanking extends javax.swing.JPanel {
         btnAlias.setContentAreaFilled(false);
         btnAlias.setFocusPainted(false);
         btnAlias.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAlias.setIconTextGap(10);
         btnAlias.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         pnlLateral.add(btnAlias);
 
-        lblNivel.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        lblNivel.setFont(new java.awt.Font("Are You Freakin' Serious ", 1, 24)); // NOI18N
         lblNivel.setForeground(new java.awt.Color(204, 51, 51));
         lblNivel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNivel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/glasses.png"))); // NOI18N
         lblNivel.setText("90");
         lblNivel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Nivel", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Patrick Hand SC", 0, 14), new java.awt.Color(102, 102, 102))); // NOI18N
         lblNivel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblNivel.setIconTextGap(10);
         lblNivel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         pnlLateral.add(lblNivel);
 
@@ -79,17 +70,17 @@ public class PerfilRanking extends javax.swing.JPanel {
         lblGrado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/bk.png"))); // NOI18N
         lblGrado.setText("Sexto");
 
-        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/0.png"))); // NOI18N
-        jcMousePanel1.setVisibleLogo(false);
+        avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/0.png"))); // NOI18N
+        avatar.setVisibleLogo(false);
 
-        javax.swing.GroupLayout jcMousePanel1Layout = new javax.swing.GroupLayout(jcMousePanel1);
-        jcMousePanel1.setLayout(jcMousePanel1Layout);
-        jcMousePanel1Layout.setHorizontalGroup(
-            jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout avatarLayout = new javax.swing.GroupLayout(avatar);
+        avatar.setLayout(avatarLayout);
+        avatarLayout.setHorizontalGroup(
+            avatarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 172, Short.MAX_VALUE)
         );
-        jcMousePanel1Layout.setVerticalGroup(
-            jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        avatarLayout.setVerticalGroup(
+            avatarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -101,7 +92,7 @@ public class PerfilRanking extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(78, 78, 78))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -116,7 +107,7 @@ public class PerfilRanking extends javax.swing.JPanel {
             .addComponent(pnlLateral, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jcMousePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                .addComponent(avatar, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNick)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -129,13 +120,12 @@ public class PerfilRanking extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlias;
-    private jcMousePanel.jcMousePanel jcMousePanel1;
-    private javax.swing.JLabel lblGrado;
-    private javax.swing.JLabel lblLogros;
-    private javax.swing.JLabel lblNick;
-    private javax.swing.JLabel lblNivel;
-    private javax.swing.JLabel lblNombre;
+    public jcMousePanel.jcMousePanel avatar;
+    public javax.swing.JButton btnAlias;
+    public javax.swing.JLabel lblGrado;
+    public javax.swing.JLabel lblNick;
+    public javax.swing.JLabel lblNivel;
+    public javax.swing.JLabel lblNombre;
     private javax.swing.JPanel pnlLateral;
     // End of variables declaration//GEN-END:variables
 }

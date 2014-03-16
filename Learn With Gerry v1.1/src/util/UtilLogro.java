@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package util;
 
 import bd.ConexionBD;
@@ -19,20 +18,20 @@ import java.util.logging.Logger;
  *
  * @author Isaac
  */
-public abstract class UtilLogro implements Runnable{
+public abstract class UtilLogro implements Runnable {
+
     private boolean estadoServicio;
     private final ArrayList<Logro> listaLogros;
     Thread t;
 
     public UtilLogro(String grado) {
         listaLogros = new ArrayList<>();
-        llenarListaGrado(listaLogros,grado);
+        llenarListaGrado(listaLogros, grado);
     }
-    
-    
+
     @Override
     public void run() {
-        while(estadoServicio){
+        while (estadoServicio) {
             try {
                 desatarLogro();
                 Thread.sleep(2000);
@@ -41,60 +40,77 @@ public abstract class UtilLogro implements Runnable{
             }
         }
     }
-    
-    public static void llenarListaGrado(ArrayList listaLogros, String grado){
+
+    public static void llenarListaGrado(ArrayList listaLogros, String grado) {
         try {
             ConexionBD.abrirConexion();
-            String sql="CALL logrosgrado(?)";
-            PreparedStatement ps= ConexionBD.con.prepareCall(sql);
+            String sql = "CALL logrosgrado(?)";
+            PreparedStatement ps = ConexionBD.con.prepareCall(sql);
             ps.setInt(1, obtenGradoNumero(grado));
-            ResultSet rs= ps.executeQuery();
-            while(rs.next()){
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
                 Logro l = new Logro();
                 l.setIdLogro(rs.getInt("idlogro"));
                 l.setNombre(rs.getString("nombre"));
                 l.setDescripcion(rs.getString("descripcion"));
                 listaLogros.add(l);
             }
-            ConexionBD.cerrarConexion();
         } catch (SQLException ex) {
             Logger.getLogger(UtilLogro.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConexionBD.cerrarConexion();
         }
     }
-    
-    public static void llenarListaDesbloqueado(ArrayList listaLogros, String user){
-        
+
+    public static void llenarListaUsuario(ArrayList listaLogros, String nombreUsuario) {
+        try {
+            ConexionBD.abrirConexion();
+            PreparedStatement ps = ConexionBD.con.prepareCall("call logrosusuario(?)");
+            ps.setString(1, nombreUsuario);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Logro l = new Logro();
+                l.setIdLogro(rs.getInt("idlogro"));
+                l.setNombre(rs.getString("nombre"));
+                l.setDescripcion(rs.getString("descripcion"));
+                listaLogros.add(l);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilLogro.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConexionBD.cerrarConexion();
+        }
     }
-    
+
     public abstract void desatarLogro();
-    
-    public void insertarLogroUsuario(String nombreUsuario , int idLogro){
+
+    public void insertarLogroUsuario(String nombreUsuario, int idLogro) {
         try {
             ConexionBD.abrirConexion();
             String sql = "INSERT INTO desbloqueado VALUES(?,?)";
-            PreparedStatement ps= ConexionBD.con.prepareStatement(sql);
+            PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
             ps.setString(1, nombreUsuario);
             ps.setInt(2, idLogro);
             ps.execute();
             ConexionBD.cerrarConexion();
         } catch (SQLException ex) {
             Logger.getLogger(UtilLogro.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        }
     }
-    
-    public void iniciarServicio(){
-        t= new Thread(this);
+
+    public void iniciarServicio() {
+        t = new Thread(this);
         estadoServicio = true;
         t.start();
     }
-    
-    public void detenerServicio(){
-        estadoServicio = false;        
+
+    public void detenerServicio() {
+        estadoServicio = false;
         t.interrupt();
     }
-    
-    public static int obtenGradoNumero(String grado){
-        switch(grado){
+
+    public static int obtenGradoNumero(String grado) {
+        switch (grado) {
             case "Primero":
                 return 1;
             case "Segundo":
@@ -111,5 +127,5 @@ public abstract class UtilLogro implements Runnable{
                 return 1;
         }
     }
-    
+
 }
