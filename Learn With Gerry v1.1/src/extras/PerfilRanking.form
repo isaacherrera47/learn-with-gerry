@@ -38,7 +38,7 @@
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jcMousePanel1" min="-2" pref="172" max="-2" attributes="0"/>
+                      <Component id="avatar" min="-2" pref="172" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -59,7 +59,7 @@
           <Component id="pnlLateral" pref="278" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jcMousePanel1" pref="157" max="32767" attributes="0"/>
+              <Component id="avatar" pref="157" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblNick" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -73,39 +73,16 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="pnlLateral">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="2"/>
+        <Property name="rows" type="int" value="2"/>
+      </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblLogros">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Patrick Hand SC" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="cc" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/recursos/perfil/chalkboard.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="80"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder justification="2" position="5" title="Logros">
-                  <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                    <EmptyBorder/>
-                  </Border>
-                  <Font PropertyName="font" name="Patrick Hand SC" size="14" style="0"/>
-                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
-                </TitledBorder>
-              </Border>
-            </Property>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="btnAlias">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Patrick Hand SC" size="18" style="0"/>
+              <Font name="Are You Freakin&apos; Serious " size="24" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="cc" type="rgb"/>
@@ -128,13 +105,17 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusPainted" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="iconTextGap" type="int" value="10"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNivel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Patrick Hand SC" size="18" style="0"/>
+              <Font name="Are You Freakin&apos; Serious " size="24" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="cc" type="rgb"/>
@@ -156,82 +137,14 @@
               </Border>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="iconTextGap" type="int" value="10"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
-      <LayoutCode>
-        <CodeStatement>
-          <CodeExpression id="1_pnlLateral">
-            <CodeVariable name="pnlLateral" type="8194" declaredType="javax.swing.JPanel"/>
-            <ExpressionOrigin>
-              <ExpressionProvider type="ComponentRef">
-                <ComponentRef name="pnlLateral"/>
-              </ExpressionProvider>
-            </ExpressionOrigin>
-          </CodeExpression>
-          <StatementProvider type="CodeMethod">
-            <CodeMethod name="setLayout" class="java.awt.Container" parameterTypes="java.awt.LayoutManager"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="2">
-              <ExpressionOrigin>
-                <ExpressionProvider type="CodeConstructor">
-                  <CodeConstructor class="org.jdesktop.swingx.VerticalLayout" parameterTypes=""/>
-                </ExpressionProvider>
-              </ExpressionOrigin>
-            </CodeExpression>
-          </Parameters>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="1_pnlLateral"/>
-          <StatementProvider type="CodeMethod">
-            <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="3_lblLogros">
-              <CodeVariable name="lblLogros" type="8194" declaredType="javax.swing.JLabel"/>
-              <ExpressionOrigin>
-                <ExpressionProvider type="ComponentRef">
-                  <ComponentRef name="lblLogros"/>
-                </ExpressionProvider>
-              </ExpressionOrigin>
-            </CodeExpression>
-          </Parameters>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="1_pnlLateral"/>
-          <StatementProvider type="CodeMethod">
-            <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="4_btnAlias">
-              <CodeVariable name="btnAlias" type="8194" declaredType="javax.swing.JButton"/>
-              <ExpressionOrigin>
-                <ExpressionProvider type="ComponentRef">
-                  <ComponentRef name="btnAlias"/>
-                </ExpressionProvider>
-              </ExpressionOrigin>
-            </CodeExpression>
-          </Parameters>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="1_pnlLateral"/>
-          <StatementProvider type="CodeMethod">
-            <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="5_lblNivel">
-              <CodeVariable name="lblNivel" type="8194" declaredType="javax.swing.JLabel"/>
-              <ExpressionOrigin>
-                <ExpressionProvider type="ComponentRef">
-                  <ComponentRef name="lblNivel"/>
-                </ExpressionProvider>
-              </ExpressionOrigin>
-            </CodeExpression>
-          </Parameters>
-        </CodeStatement>
-      </LayoutCode>
     </Container>
     <Component class="javax.swing.JLabel" name="lblNombre">
       <Properties>
@@ -247,6 +160,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Isaac Herrera Salcedo"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNick">
       <Properties>
@@ -262,6 +178,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Isaac_9423"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblGrado">
       <Properties>
@@ -277,14 +196,20 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Sexto"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
-    <Container class="jcMousePanel.jcMousePanel" name="jcMousePanel1">
+    <Container class="jcMousePanel.jcMousePanel" name="avatar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/recursos/perfil/0.png"/>
         </Property>
         <Property name="visibleLogo" type="boolean" value="false"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

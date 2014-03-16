@@ -4,9 +4,7 @@ import clases.Logro;
 import clases.PerfilCarga;
 import extras.DescripcionLogro;
 import java.awt.CardLayout;
-import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Random;
 import util.UtilLogro;
 import util.UtilVentana;
 
@@ -16,33 +14,43 @@ import util.UtilVentana;
  */
 public class Logros extends javax.swing.JDialog {
 
-    ArrayList<Logro> l;
-    Color c;
-    Random r;
+    ArrayList<Logro> lT;
+    ArrayList<Logro> lU;
     UtilVentana ven;
     CardLayout cl;
+
     public Logros(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        cl = (CardLayout) pnlLogros.getLayout();
-        r = new Random();
-        l = new ArrayList<>();
-        cargarDatosGrado();
+        cl = (CardLayout) pnlLogros.getLayout();        
+        lT = new ArrayList<>();
+        lU = new ArrayList<>();
+        cargarDatos();
     }
 
-    private void cargarDatosGrado() {
-        UtilLogro.llenarListaGrado(l, PerfilCarga.getGrado());
+    private void cargarDatos() {
+        UtilLogro.llenarListaGrado(lT, PerfilCarga.getGrado());
         DescripcionLogro objLogro;
-        for (int i = 0; i < l.size(); i++) {
+        for (int i = 0; i < lT.size(); i++) {
             objLogro = new DescripcionLogro();
-            objLogro.lblTitulo.setText(l.get(i).getNombre());
-            objLogro.lblDescripcion.setText(l.get(i).getDescripcion());
-            objLogro.lblIdLogro.setText("Logro: " + (l.get(i).getIdLogro()));
+            objLogro.lblTitulo.setText(lT.get(i).getNombre());
+            objLogro.lblDescripcion.setText(lT.get(i).getDescripcion());
+            objLogro.lblIdLogro.setText("Logro: " + (lT.get(i).getIdLogro()));
             objLogro.lblDescripcion.setLineWrap(true);
-            pnlLogros.add(objLogro);            
+            pnlTodos.add(objLogro);
         }
+        UtilLogro.llenarListaUsuario(lU, PerfilCarga.getNick());
+        for (int i = 0; i < lU.size(); i++) {
+            objLogro = new DescripcionLogro();
+            objLogro.lblTitulo.setText(lU.get(i).getNombre());
+            objLogro.lblDescripcion.setText(lU.get(i).getDescripcion());
+            objLogro.lblIdLogro.setText("Logro: " + (lU.get(i).getIdLogro()));
+            objLogro.lblDescripcion.setLineWrap(true);
+            pnlDesbloqueados.add(objLogro);
+        }
+        pnlDesbloqueados.repaint();
+        pnlTodos.repaint();
         repaint();
-        pnlLogros.repaint();
     }
 
     @SuppressWarnings("unchecked")
@@ -54,6 +62,8 @@ public class Logros extends javax.swing.JDialog {
         imgFondo = new javax.swing.JLabel();
         scrollLogros = new javax.swing.JScrollPane();
         pnlLogros = new javax.swing.JPanel();
+        pnlDesbloqueados = new javax.swing.JPanel();
+        pnlTodos = new javax.swing.JPanel();
         btnTodos = new javax.swing.JButton();
         btnDesbloqueados = new javax.swing.JButton();
 
@@ -81,24 +91,35 @@ public class Logros extends javax.swing.JDialog {
 
         pnlLogros.setBackground(new java.awt.Color(37, 142, 233));
         pnlLogros.setLayout(new java.awt.CardLayout());
+
+        pnlDesbloqueados.setOpaque(false);
+        pnlDesbloqueados.setLayout(new java.awt.GridLayout(4, 3, 5, 5));
+        pnlLogros.add(pnlDesbloqueados, "crdDesbloqueados");
+
+        pnlTodos.setOpaque(false);
+        pnlTodos.setLayout(new java.awt.GridLayout(4, 3, 5, 5));
+        pnlLogros.add(pnlTodos, "crdTodos");
+
         scrollLogros.setViewportView(pnlLogros);
 
-        btnTodos.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        btnTodos.setFont(new java.awt.Font("Please write me a song", 0, 24)); // NOI18N
         btnTodos.setForeground(new java.awt.Color(255, 255, 255));
-        btnTodos.setText("Mis logros");
+        btnTodos.setText("Todos los logros");
         btnTodos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         btnTodos.setContentAreaFilled(false);
+        btnTodos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTodos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTodosActionPerformed(evt);
             }
         });
 
-        btnDesbloqueados.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
+        btnDesbloqueados.setFont(new java.awt.Font("Please write me a song", 0, 24)); // NOI18N
         btnDesbloqueados.setForeground(new java.awt.Color(255, 255, 255));
-        btnDesbloqueados.setText("Todos los logros");
+        btnDesbloqueados.setText("Mis logros");
         btnDesbloqueados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         btnDesbloqueados.setContentAreaFilled(false);
+        btnDesbloqueados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDesbloqueados.setSelected(true);
         btnDesbloqueados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,7 +143,7 @@ public class Logros extends javax.swing.JDialog {
                             .addComponent(btnDesbloqueados, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                             .addComponent(btnTodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollLogros, javax.swing.GroupLayout.DEFAULT_SIZE, 841, Short.MAX_VALUE)
+                .addComponent(scrollLogros)
                 .addContainerGap())
         );
         pnlPrincipalLayout.setVerticalGroup(
@@ -134,7 +155,7 @@ public class Logros extends javax.swing.JDialog {
                 .addComponent(btnDesbloqueados, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(imgFondo))
             .addComponent(scrollLogros)
         );
@@ -145,13 +166,12 @@ public class Logros extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTodosActionPerformed
-        // TODO add your handling code here:
+        cl.show(pnlLogros, "crdTodos");
     }//GEN-LAST:event_btnTodosActionPerformed
 
     private void btnDesbloqueadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesbloqueadosActionPerformed
-        // TODO add your handling code here:
+        cl.show(pnlLogros, "crdDesbloqueados");
     }//GEN-LAST:event_btnDesbloqueadosActionPerformed
-
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -197,8 +217,10 @@ public class Logros extends javax.swing.JDialog {
     private javax.swing.JButton btnTodos;
     private javax.swing.JLabel imgFondo;
     private javax.swing.JLabel lwg;
+    private javax.swing.JPanel pnlDesbloqueados;
     private javax.swing.JPanel pnlLogros;
     private javax.swing.JPanel pnlPrincipal;
+    private javax.swing.JPanel pnlTodos;
     private javax.swing.JScrollPane scrollLogros;
     // End of variables declaration//GEN-END:variables
 }
