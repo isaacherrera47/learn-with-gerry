@@ -1,22 +1,29 @@
 package principal;
 
+import clases.Alias;
 import clases.PerfilCarga;
+import extras.DescripcionAlias;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import util.UtilPerfil;
 
 /**
  *
  * @author Isaac
  */
 public class DatosJugador extends javax.swing.JDialog {
-
+    
+    ArrayList<Alias> listaAlias;
     Color fondo;
     String nombre;
     public DatosJugador(java.awt.Frame parent, boolean modal, JPanel pnl) {
         super(parent, modal);
         initComponents();
-        fondo = pnl.getBackground();
+        listaAlias = new ArrayList<>();
+        fondo = pnl.getBackground();   
+        cargarAlias();
     }
 
 
@@ -24,6 +31,11 @@ public class DatosJugador extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dlgAliasDisp = new javax.swing.JDialog();
+        pnlSelAlias = new javax.swing.JPanel();
+        scrollAlias = new javax.swing.JScrollPane();
+        pnlAlias = new javax.swing.JPanel();
+        btnSalirAlias = new javax.swing.JButton();
         pnlPrincipal = new javax.swing.JPanel();
         avatar = new org.jdesktop.swingx.JXLabel();
         pnlInferior = new javax.swing.JPanel();
@@ -34,6 +46,55 @@ public class DatosJugador extends javax.swing.JDialog {
         lblNick = new javax.swing.JLabel();
         lblGrado = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+
+        dlgAliasDisp.setMinimumSize(new java.awt.Dimension(1000, 500));
+        dlgAliasDisp.setModal(true);
+        dlgAliasDisp.setUndecorated(true);
+        dlgAliasDisp.setResizable(false);
+
+        pnlSelAlias.setBackground(new java.awt.Color(204, 51, 51));
+
+        scrollAlias.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        pnlAlias.setBackground(new java.awt.Color(204, 51, 51));
+        org.jdesktop.swingx.HorizontalLayout horizontalLayout1 = new org.jdesktop.swingx.HorizontalLayout();
+        horizontalLayout1.setGap(10);
+        pnlAlias.setLayout(horizontalLayout1);
+        scrollAlias.setViewportView(pnlAlias);
+
+        btnSalirAlias.setFont(new java.awt.Font("Are You Freakin' Serious ", 0, 24)); // NOI18N
+        btnSalirAlias.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalirAlias.setText("X");
+        btnSalirAlias.setBorderPainted(false);
+        btnSalirAlias.setContentAreaFilled(false);
+        btnSalirAlias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalirAlias.setFocusPainted(false);
+        btnSalirAlias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirAliasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlSelAliasLayout = new javax.swing.GroupLayout(pnlSelAlias);
+        pnlSelAlias.setLayout(pnlSelAliasLayout);
+        pnlSelAliasLayout.setHorizontalGroup(
+            pnlSelAliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scrollAlias, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSelAliasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalirAlias)
+                .addContainerGap())
+        );
+        pnlSelAliasLayout.setVerticalGroup(
+            pnlSelAliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSelAliasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnSalirAlias)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(scrollAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        dlgAliasDisp.getContentPane().add(pnlSelAlias, java.awt.BorderLayout.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setIconImage(null);
@@ -167,14 +228,19 @@ public class DatosJugador extends javax.swing.JDialog {
     }//GEN-LAST:event_formComponentShown
 
     private void btnAliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAliasActionPerformed
-        // TODO add your handling code here:
+        dlgAliasDisp.setVisible(true);
     }//GEN-LAST:event_btnAliasActionPerformed
+
+    private void btnSalirAliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAliasActionPerformed
+        dlgAliasDisp.setVisible(false);
+    }//GEN-LAST:event_btnSalirAliasActionPerformed
 
     private void cambiarColores() {
         pnlPrincipal.setBackground(fondo);
         lblLogros.setForeground(fondo);
         lblNivel.setForeground(fondo);
         btnAlias.setForeground(fondo);
+        pnlSelAlias.setBackground(fondo);
     }
     private void cargarDatos(){
         nombre= PerfilCarga.getNombre().trim()+" "+PerfilCarga.getApPaterno().trim()+" "+PerfilCarga.getApMaterno();
@@ -185,6 +251,19 @@ public class DatosJugador extends javax.swing.JDialog {
         lblNivel.setText(Integer.toString(PerfilCarga.getNivel()));
         btnAlias.setText(PerfilCarga.getAlias());
         avatar.setIcon(new ImageIcon(getClass().getResource("/recursos/perfil/redim/"+PerfilCarga.getCodAvatar()+".png")));
+    }
+    private void cargarAlias(){
+        DescripcionAlias desc;
+        UtilPerfil.llenarListaAlias(listaAlias);
+        for (int i = 0; i < listaAlias.size(); i++) {
+            desc = new DescripcionAlias(listaAlias.get(i),this);
+            desc.avatar.setIcon(new ImageIcon(getClass().getResource("/recursos/perfil/alias/"+listaAlias.get(i).getId()+".png")));
+            desc.lblDescripcion.setText(listaAlias.get(i).getDescripcion());
+            desc.lblNombre.setText(listaAlias.get(i).getNombre());
+            pnlAlias.add(desc);
+        }
+        repaint();
+        pnlAlias.repaint();
     }
 
     public static void main(String args[]) {
@@ -228,14 +307,19 @@ public class DatosJugador extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXLabel avatar;
-    private javax.swing.JButton btnAlias;
+    public javax.swing.JButton btnAlias;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnSalirAlias;
+    public javax.swing.JDialog dlgAliasDisp;
     private javax.swing.JLabel lblGrado;
     private javax.swing.JLabel lblLogros;
     private javax.swing.JLabel lblNick;
     private javax.swing.JLabel lblNivel;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JPanel pnlAlias;
     private javax.swing.JPanel pnlInferior;
     private javax.swing.JPanel pnlPrincipal;
+    private javax.swing.JPanel pnlSelAlias;
+    private javax.swing.JScrollPane scrollAlias;
     // End of variables declaration//GEN-END:variables
 }

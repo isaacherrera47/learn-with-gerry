@@ -6,6 +6,7 @@
 package util;
 
 import bd.ConexionBD;
+import clases.Alias;
 import clases.Perfil;
 import clases.PerfilCarga;
 import java.awt.Color;
@@ -77,6 +78,42 @@ public class UtilPerfil {
         } catch (SQLException ex) {
             Logger.getLogger(UtilPerfil.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
+            ConexionBD.cerrarConexion();
+        }
+    }
+    
+    public static void almacenarAliasPerfil(String nombreUsuario, int idAlias){
+        try {
+            ConexionBD.abrirConexion();
+            String sql= "UPDATE usuario set idalias = ? WHERE user = ?";
+            PreparedStatement ps= ConexionBD.con.prepareStatement(sql);
+            ps.setInt(1, idAlias);
+            ps.setString(2, nombreUsuario);       
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilPerfil.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConexionBD.cerrarConexion();
+        }
+    }
+    
+    public static void llenarListaAlias(ArrayList lista){
+        try {
+            ConexionBD.abrirConexion();
+            Alias al;
+            String sql= "SELECT * FROM alias;";
+            PreparedStatement ps =  ConexionBD.con.prepareStatement(sql);
+            ResultSet rs= ps.executeQuery();
+            while(rs.next()){
+                al= new Alias();
+                al.setNombre(rs.getString("nombre"));
+                al.setDescripcion(rs.getString("descripcion"));
+                al.setId(rs.getInt("id"));
+                lista.add(al);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilPerfil.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
             ConexionBD.cerrarConexion();
         }
     }
