@@ -149,7 +149,7 @@ public class UtilPerfil {
     public static void llenarRankingTodos(ArrayList lista) {
         try {
             ConexionBD.abrirConexion();
-            String sql = "select * from rankingUsuario;";
+            String sql = "select * from rankingUsuario where grado not like '%visor%';";
             PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

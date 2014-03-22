@@ -38,6 +38,7 @@ public class DescripcionAlias extends javax.swing.JPanel {
         btnEscoger.setText("Seleccionar");
         btnEscoger.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         btnEscoger.setContentAreaFilled(false);
+        btnEscoger.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEscoger.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEscogerActionPerformed(evt);

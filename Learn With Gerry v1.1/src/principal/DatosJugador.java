@@ -36,6 +36,8 @@ public class DatosJugador extends javax.swing.JDialog {
         scrollAlias = new javax.swing.JScrollPane();
         pnlAlias = new javax.swing.JPanel();
         btnSalirAlias = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jcMousePanel1 = new jcMousePanel.jcMousePanel();
         pnlPrincipal = new javax.swing.JPanel();
         avatar = new org.jdesktop.swingx.JXLabel();
         pnlInferior = new javax.swing.JPanel();
@@ -47,12 +49,14 @@ public class DatosJugador extends javax.swing.JDialog {
         lblGrado = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
 
+        dlgAliasDisp.setLocationByPlatform(true);
         dlgAliasDisp.setMinimumSize(new java.awt.Dimension(1000, 500));
         dlgAliasDisp.setModal(true);
         dlgAliasDisp.setUndecorated(true);
         dlgAliasDisp.setResizable(false);
 
         pnlSelAlias.setBackground(new java.awt.Color(204, 51, 51));
+        pnlSelAlias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         scrollAlias.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
@@ -75,22 +79,51 @@ public class DatosJugador extends javax.swing.JDialog {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("KG Beneath Your Beautiful Chunk", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Selecciona un alias...");
+
+        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/0.png"))); // NOI18N
+        jcMousePanel1.setVisibleLogo(false);
+
+        javax.swing.GroupLayout jcMousePanel1Layout = new javax.swing.GroupLayout(jcMousePanel1);
+        jcMousePanel1.setLayout(jcMousePanel1Layout);
+        jcMousePanel1Layout.setHorizontalGroup(
+            jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 78, Short.MAX_VALUE)
+        );
+        jcMousePanel1Layout.setVerticalGroup(
+            jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout pnlSelAliasLayout = new javax.swing.GroupLayout(pnlSelAlias);
         pnlSelAlias.setLayout(pnlSelAliasLayout);
         pnlSelAliasLayout.setHorizontalGroup(
             pnlSelAliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollAlias, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSelAliasLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlSelAliasLayout.createSequentialGroup()
+                .addGap(202, 202, 202)
+                .addComponent(jcMousePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
                 .addComponent(btnSalirAlias)
                 .addContainerGap())
+            .addComponent(scrollAlias)
         );
         pnlSelAliasLayout.setVerticalGroup(
             pnlSelAliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSelAliasLayout.createSequentialGroup()
+            .addGroup(pnlSelAliasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnSalirAlias)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGroup(pnlSelAliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSelAliasLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
+                    .addGroup(pnlSelAliasLayout.createSequentialGroup()
+                        .addComponent(btnSalirAlias)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jcMousePanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(scrollAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -141,6 +174,7 @@ public class DatosJugador extends javax.swing.JDialog {
         btnAlias.setText("Pantera");
         btnAlias.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Alias", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Patrick Hand SC", 0, 18), new java.awt.Color(102, 102, 102))); // NOI18N
         btnAlias.setContentAreaFilled(false);
+        btnAlias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAlias.setFocusPainted(false);
         btnAlias.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAlias.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -174,6 +208,7 @@ public class DatosJugador extends javax.swing.JDialog {
         btnSalir.setText("x");
         btnSalir.setBorderPainted(false);
         btnSalir.setContentAreaFilled(false);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.setFocusPainted(false);
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,6 +276,7 @@ public class DatosJugador extends javax.swing.JDialog {
         lblNivel.setForeground(fondo);
         btnAlias.setForeground(fondo);
         pnlSelAlias.setBackground(fondo);
+        pnlAlias.setBackground(fondo);
     }
     private void cargarDatos(){
         nombre= PerfilCarga.getNombre().trim()+" "+PerfilCarga.getApPaterno().trim()+" "+PerfilCarga.getApMaterno();
@@ -311,6 +347,8 @@ public class DatosJugador extends javax.swing.JDialog {
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSalirAlias;
     public javax.swing.JDialog dlgAliasDisp;
+    private javax.swing.JLabel jLabel1;
+    private jcMousePanel.jcMousePanel jcMousePanel1;
     private javax.swing.JLabel lblGrado;
     private javax.swing.JLabel lblLogros;
     private javax.swing.JLabel lblNick;

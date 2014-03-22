@@ -78,13 +78,14 @@ public class Ranking extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LwG - Ranking");
         setLocationByPlatform(true);
-        setMinimumSize(new java.awt.Dimension(1200, 650));
+        setMinimumSize(new java.awt.Dimension(990, 615));
         setModal(true);
-        setPreferredSize(new java.awt.Dimension(1200, 650));
+        setPreferredSize(new java.awt.Dimension(990, 615));
         setResizable(false);
 
         pnlPrincipal.setBackground(new java.awt.Color(204, 51, 51));
-        pnlPrincipal.setMinimumSize(new java.awt.Dimension(1200, 610));
+        pnlPrincipal.setMinimumSize(new java.awt.Dimension(990, 610));
+        pnlPrincipal.setPreferredSize(new java.awt.Dimension(990, 610));
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/championb.png"))); // NOI18N
 
@@ -155,33 +156,30 @@ public class Ranking extends javax.swing.JDialog {
                             .addComponent(btnTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnGrados, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(scrollRanking)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scrollRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRanking, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LogoLWG, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                    .addComponent(lblRanking)
+                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(LogoLWG))))
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPrincipalLayout.createSequentialGroup()
-                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPrincipalLayout.createSequentialGroup()
-                        .addComponent(lblLogo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGrados, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPrincipalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                                .addComponent(lblRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(LogoLWG))
-                            .addComponent(scrollRanking))))
-                .addContainerGap())
+            .addGroup(pnlPrincipalLayout.createSequentialGroup()
+                .addComponent(lblLogo)
+                .addGap(11, 11, 11)
+                .addComponent(btnTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(btnGrados, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlPrincipalLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
+                        .addComponent(lblRanking)
+                        .addGap(476, 476, 476)
+                        .addComponent(LogoLWG))))
         );
 
         getContentPane().add(pnlPrincipal, java.awt.BorderLayout.CENTER);
