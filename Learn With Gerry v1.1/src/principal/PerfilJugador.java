@@ -312,6 +312,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnSonido.setBorder(null);
         btnSonido.setBorderPainted(false);
         btnSonido.setContentAreaFilled(false);
+        btnSonido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSonido.setFocusPainted(false);
         btnSonido.setOpaque(true);
         btnSonido.addActionListener(new java.awt.event.ActionListener() {
@@ -334,6 +335,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnColor.setText("Salmón");
         btnColor.setBorderPainted(false);
         btnColor.setContentAreaFilled(false);
+        btnColor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnColor.setFocusPainted(false);
         btnColor.setOpaque(true);
         btnColor.addActionListener(new java.awt.event.ActionListener() {
@@ -348,12 +350,14 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnAcerca.setText("Acerca de...");
         btnAcerca.setBorderPainted(false);
         btnAcerca.setContentAreaFilled(false);
+        btnAcerca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAcerca.setFocusPainted(false);
         btnAcerca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/chk.png"))); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
