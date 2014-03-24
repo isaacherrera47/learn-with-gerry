@@ -213,14 +213,9 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
         }
     }
 
-    public synchronized void desatarLogro() {
-
-    }
-
     @Override
     public final void hilosFondo() {
         t1 = new Timer(1000, new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 estadoTemporizador();
@@ -231,7 +226,6 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
 
     @Override
     public void estadoTemporizador() {
-
         if (!tm.isCronometroActivo()) {
             detenerServicios();
         }
@@ -284,6 +278,7 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
             @Override
             public void desatarLogro() {
                 if (bonSeguidas == 3) {
+                    
                     Notification.desktopMessage(DesktopNotify.NICON_WEATHER_ICON, "Querido Doctor tiempo", "Obten 3 bonificaciones seguidas en el memorama");                    
                 }
                 if (tm.getTipoTemp() == 2 && tm.getSegundos() <= 6 && realizado) {
