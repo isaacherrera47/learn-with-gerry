@@ -353,6 +353,11 @@ public class PerfilJugador extends javax.swing.JFrame {
         btnAcerca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAcerca.setFocusPainted(false);
         btnAcerca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAcerca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcercaActionPerformed(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/chk.png"))); // NOI18N
         jButton1.setBorderPainted(false);
@@ -1022,6 +1027,10 @@ public class PerfilJugador extends javax.swing.JFrame {
             UtilPerfil.mandarNotificacionLogro(avatar, new PopupLogro("cocodrilo", "¡Muy curioso!", "Cambia por primera vez el avatar"));
         }
     }//GEN-LAST:event_avatarPropertyChange
+
+    private void btnAcercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcercaActionPerformed
+        new AcercaDe(this, true).setVisible(true);
+    }//GEN-LAST:event_btnAcercaActionPerformed
     // Cambia el fondo de la ventana de perfil
     private void cambiarFondo(JButton boton) {
         dlgCambiarFondo.setVisible(false);

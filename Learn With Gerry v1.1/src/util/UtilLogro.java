@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public abstract class UtilLogro implements Runnable {
 
     private boolean estadoServicio;
-    private final ArrayList<Logro> listaLogros;
+    public final ArrayList<Logro> listaLogros;
     Thread t;
 
     public UtilLogro(String grado) {
