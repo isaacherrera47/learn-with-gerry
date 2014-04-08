@@ -109,11 +109,15 @@ public class Ranking extends javax.swing.JDialog {
         pnlRanking.setLayout(new java.awt.CardLayout());
 
         pnlTodos.setOpaque(false);
-        pnlTodos.setLayout(new javax.swing.BoxLayout(pnlTodos, javax.swing.BoxLayout.PAGE_AXIS));
+        org.jdesktop.swingx.VerticalLayout verticalLayout1 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout1.setGap(5);
+        pnlTodos.setLayout(verticalLayout1);
         pnlRanking.add(pnlTodos, "crdTodos");
 
         pnlGrado.setOpaque(false);
-        pnlGrado.setLayout(new javax.swing.BoxLayout(pnlGrado, javax.swing.BoxLayout.PAGE_AXIS));
+        org.jdesktop.swingx.VerticalLayout verticalLayout2 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout2.setGap(5);
+        pnlGrado.setLayout(verticalLayout2);
         pnlRanking.add(pnlGrado, "crdGrado");
 
         scrollRanking.setViewportView(pnlRanking);

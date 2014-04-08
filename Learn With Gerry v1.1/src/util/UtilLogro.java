@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package util;
 
 import bd.ConexionBD;
@@ -11,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,12 +17,15 @@ import java.util.logging.Logger;
 public abstract class UtilLogro implements Runnable {
 
     private boolean estadoServicio;
-    public final ArrayList<Logro> listaLogros;
+    public final HashMap<Integer,Logro> listaLogros;
+    public final ArrayList<Integer> listaDesbloqueados;    
     Thread t;
 
-    public UtilLogro(String grado) {
-        listaLogros = new ArrayList<>();
+    public UtilLogro(String grado, String usuario) {
+        listaLogros = new HashMap();
+        listaDesbloqueados = new ArrayList<>();
         llenarListaGrado(listaLogros, grado);
+        llenarListaDesbloqueados(usuario);
     }
 
     @Override
@@ -54,6 +53,44 @@ public abstract class UtilLogro implements Runnable {
                 l.setNombre(rs.getString("nombre"));
                 l.setDescripcion(rs.getString("descripcion"));
                 listaLogros.add(l);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilLogro.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConexionBD.cerrarConexion();
+        }
+    }
+
+    private void llenarListaDesbloqueados(String usuario) {
+        try {
+            ConexionBD.abrirConexion();
+            String sql = "SELECT * FROM desbloqueados WHERE iduser= ? ORDER BY idlogros ASC;";
+            PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
+            ps.setString(1, usuario);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                listaDesbloqueados.add(rs.getInt("idlogros"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilLogro.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConexionBD.cerrarConexion();
+        }
+    }
+
+    public static void llenarListaGrado(HashMap listaLogros, String grado) {
+        try {
+            ConexionBD.abrirConexion();
+            String sql = "CALL logrosgrado(?)";
+            PreparedStatement ps = ConexionBD.con.prepareCall(sql);
+            ps.setInt(1, obtenGradoNumero(grado));
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Logro l = new Logro();
+                l.setIdLogro(rs.getInt("idlogro"));
+                l.setNombre(rs.getString("nombre"));
+                l.setDescripcion(rs.getString("descripcion"));
+                listaLogros.put(l.getIdLogro(), l);
             }
         } catch (SQLException ex) {
             Logger.getLogger(UtilLogro.class.getName()).log(Level.SEVERE, null, ex);

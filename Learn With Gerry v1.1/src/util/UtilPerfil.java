@@ -10,6 +10,7 @@ import clases.Alias;
 import clases.Perfil;
 import clases.PerfilCarga;
 import java.awt.Color;
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -149,7 +150,7 @@ public class UtilPerfil {
     public static void llenarRankingTodos(ArrayList lista) {
         try {
             ConexionBD.abrirConexion();
-            String sql = "select * from rankingUsuario where grado not like '%visor%';";
+            String sql = "select * from rankingusuario where grado not like '%visor%'";            
             PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
