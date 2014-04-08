@@ -7,43 +7,23 @@ import static util.Memorizable.seleccionados;
 import static util.Memorizable.todos;
 import static util.Memorizable.todos2;
 import extras.PanelCarta;
+import extras.PopupLogro;
 import util.Temporizador;
 import util.UtilVentana;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
-import net.java.balloontip.BalloonTip;
-import net.java.balloontip.styles.BalloonTipStyle;
-import net.java.balloontip.styles.MinimalBalloonStyle;
-import net.java.balloontip.utils.FadingUtils;
-import net.java.balloontip.utils.TimingUtils;
-import nicon.notify.core.Notification;
-import nicon.notify.gui.desktopNotify.DesktopNotify;
+import util.ColorFondo;
 import util.UtilLogro;
+import util.UtilPerfil;
 
 /**
  *
  * @author Isaac
  */
 public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable {
-
-    UtilVentana extras;
-    BalloonTipStyle bs;
-    BalloonTip b;
-    Timer t1;
-    UtilLogro servicioLogro;
-    private boolean realizado;
-    private int paresSeguidos = 0;
-    private int bonSeguidas = 0;
-    private int errores = 0;
-    private final int LIMITE = 5; // Numero máximo de intentos
-    private final int pares = 10; // Pares del Memorama
-    int contadorGanador = 0;
-    int contadorPerdedor = 0;
-    Temporizador tm;
 
     public Memorama(String tipo) {
         initComponents();
@@ -52,8 +32,7 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
         agregarPaneles(tipo);
         hilosFondo();
         serviciosAlFondo();
-        extras.maximizarPantalla();
-        bs = new MinimalBalloonStyle(new Color(255, 255, 255), 0);
+        extras.maximizarPantalla();        
     }
 
     @SuppressWarnings("unchecked")
@@ -256,46 +235,76 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
         if (bonSeguidas >= 1 && paresSeguidos == 0) {
             paresSeguidos = 0;
             tm.agregarBonificacion(3);
-            mandarNotificacion("BONUUUUUUS! +3");
+            notif.setText("BONUUUUUUUUUUUS! +3");
+            UtilPerfil.mandarNotificacion(ColorFondo.MENSAJE_BIEN, pbTiempo, notif);
         }
         if (errores == 4) {
             errores = 0;
             tm.agregarPenalizacion(3);
-            mandarNotificacion("UHHHHHH! -3");
+            notif.setText("UUUUUUH! -3");
+            UtilPerfil.mandarNotificacion(ColorFondo.MENSAJE_ADVERTENCIA, pbTiempo, notif);
         }
     }
 
-    private void mandarNotificacion(String texto) {
-        notif.setText(texto);
-        b = new BalloonTip(pbTiempo, notif, bs, false);
-        TimingUtils.showTimedBalloon(b, 2000);
-        FadingUtils.fadeInBalloon(b, null, 300, 24);
-    }
 
     @Override
     public final void serviciosAlFondo() {
-        servicioLogro = new UtilLogro(PerfilCarga.getGrado()) {
+        servicioLogro = new UtilLogro(PerfilCarga.getGrado(), PerfilCarga.getNick()) {
             @Override
             public void desatarLogro() {
+
                 if (bonSeguidas == 3) {
-                    
-                    Notification.desktopMessage(DesktopNotify.NICON_WEATHER_ICON, "Querido Doctor tiempo", "Obten 3 bonificaciones seguidas en el memorama");                    
+                    if (!servicioLogro.listaDesbloqueados.contains(17)) {
+                        servicioLogro.insertarLogroUsuario(PerfilCarga.getNick(), 17);
+                        UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala",
+                                servicioLogro.listaLogros.get(17).getNombre(), servicioLogro.listaLogros.get(17).getDescripcion()));
+                    }
                 }
                 if (tm.getTipoTemp() == 2 && tm.getSegundos() <= 6 && realizado) {
-                    Notification.desktopMessage(DesktopNotify.NICON_WEATHER_ICON, "¡Tic,Toc,Tic,Toc!","Resuelve un memorama quedando 5 segundos o menos");
+                    if (!servicioLogro.listaDesbloqueados.contains(16)) {
+                        servicioLogro.insertarLogroUsuario(PerfilCarga.getNick(), 16);
+                        UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(16).getNombre(),
+                                servicioLogro.listaLogros.get(16).getDescripcion()));
+                    }
                 }
                 if (!tm.isCronometroActivo() && contadorGanador == pares - 1) {
-                    Notification.desktopMessage(DesktopNotify.NICON_WEATHER_ICON, "Nada que perder", "Quédate a un acierto de terminar el memorama");
+                    if (!servicioLogro.listaDesbloqueados.contains(18)) {
+                        servicioLogro.insertarLogroUsuario(PerfilCarga.getNick(), 18);
+                        UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(18).getNombre(), 
+                                servicioLogro.listaLogros.get(18).getDescripcion()));
+                    }
                 }
                 if (tm.getTipoTemp() == 1 && (tm.getSegundos() <= 59 && tm.getMinutos() == 0)) {
-                    Notification.desktopMessage(DesktopNotify.NICON_WEATHER_ICON, "Conejito velooooooooooz", "Termina la prueba en menos de un minuto");
+                    if (!servicioLogro.listaDesbloqueados.contains(19)) {
+                        servicioLogro.insertarLogroUsuario(PerfilCarga.getNick(), 19);
+                        UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(19).getNombre(), 
+                                servicioLogro.listaLogros.get(19).getDescripcion()));
+                    }
                 }
                 if (tm.getPenalizaciones() == 0 && !tm.isCronometroActivo()) {
-                    Notification.desktopMessage(DesktopNotify.NICON_WEATHER_ICON, "¡El mal nunca triunfa!", "Termina la prueba sin ninguna penalización");
+                    if (!servicioLogro.listaDesbloqueados.contains(21)) {
+                        servicioLogro.insertarLogroUsuario(PerfilCarga.getNick(), 21);
+                        UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(21).getNombre(),
+                                servicioLogro.listaLogros.get(21).getDescripcion()));
+                    }
                 }
             }
         };
         servicioLogro.iniciarServicio();
     }
+
+    UtilVentana extras;
+    Timer t1;
+    UtilLogro servicioLogro;
+    private boolean realizado;
+    private int paresSeguidos = 0;
+    private int bonSeguidas = 0;
+    private int errores = 0;
+    private final int LIMITE = 5; // Numero máximo de intentos
+    private final int pares = 10; // Pares del Memorama
+    int contadorGanador = 0;
+    int contadorPerdedor = 0;
+    Temporizador tm;
+    
 
 }

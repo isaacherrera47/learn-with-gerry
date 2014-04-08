@@ -84,6 +84,7 @@ public class DescripcionAlias extends javax.swing.JPanel {
         UtilPerfil.almacenarAliasPerfil(PerfilCarga.getNick(), objAlias.getId());
         parent.btnAlias.setText(objAlias.getNombre());
         parent.dlgAliasDisp.setVisible(false);
+        PerfilCarga.setCodAlias(objAlias.getNombre());
     }//GEN-LAST:event_btnEscogerActionPerformed
 
 

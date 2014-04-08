@@ -127,7 +127,7 @@ public class Temporizador implements Runnable {
                     barra.setValue(segundos);
                     barra.setMinimum(0);
                     while (cronometroActivo) {
-                        Thread.sleep(1100);
+                        Thread.sleep(1000);
                         segundos--;
                         barra.setValue(segundos);
                         if (segundos <= 1) {
