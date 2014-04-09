@@ -961,7 +961,7 @@ public class PerfilJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInformacionActionPerformed
 
     private void btnEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadisticasActionPerformed
-        new Estadistica(this, true).setVisible(true);
+        new Estadistica(this).setVisible(true);
     }//GEN-LAST:event_btnEstadisticasActionPerformed
 
     private void btnGradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGradosActionPerformed
@@ -969,7 +969,7 @@ public class PerfilJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGradosActionPerformed
 
     private void btnPruebasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPruebasActionPerformed
-
+        new Pruebas(this,true).setVisible(true);
     }//GEN-LAST:event_btnPruebasActionPerformed
 
     private void dlgOpcionesComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_dlgOpcionesComponentShown
