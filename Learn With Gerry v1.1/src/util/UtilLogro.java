@@ -64,7 +64,7 @@ public abstract class UtilLogro implements Runnable {
     private void llenarListaDesbloqueados(String usuario) {
         try {
             ConexionBD.abrirConexion();
-            String sql = "SELECT * FROM desbloqueados WHERE iduser= ? ORDER BY idlogros ASC;";
+            String sql = "SELECT * FROM desbloqueado WHERE iduser= ? ORDER BY idlogros ASC;";
             PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
             ps.setString(1, usuario);
             ResultSet rs = ps.executeQuery();

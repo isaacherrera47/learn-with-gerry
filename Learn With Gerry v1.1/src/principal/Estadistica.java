@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import clases.Estadisticas;
 import extras.DescripcionDetalles;
+import java.sql.CallableStatement;
 import util.UtilDetalles;
 
 /**
@@ -85,7 +86,6 @@ public class Estadistica extends javax.swing.JDialog {
 
         dlgDetalles.setMinimumSize(new java.awt.Dimension(1000, 400));
         dlgDetalles.setUndecorated(true);
-        dlgDetalles.setPreferredSize(new java.awt.Dimension(1000, 400));
         dlgDetalles.setResizable(false);
 
         pnlPrincipal.setBackground(new java.awt.Color(199, 13, 13));
@@ -191,15 +191,15 @@ public class Estadistica extends javax.swing.JDialog {
         lblAlias.setText("Alias:");
         pnlEstadistica.add(lblAlias, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, 40, 20));
 
-        lblNickUser.setFont(new java.awt.Font("Lavanderia Sturdy", 0, 24)); // NOI18N
+        lblNickUser.setFont(new java.awt.Font("Odin Rounded", 0, 18)); // NOI18N
         lblNickUser.setForeground(new java.awt.Color(220, 94, 94));
         lblNickUser.setText("Issac_9423");
-        pnlEstadistica.add(lblNickUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 90, 30));
+        pnlEstadistica.add(lblNickUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 180, 30));
 
         lblAliasUser.setFont(new java.awt.Font("Caviar Dreams", 0, 24)); // NOI18N
         lblAliasUser.setForeground(new java.awt.Color(220, 94, 94));
         lblAliasUser.setText("Pantera");
-        pnlEstadistica.add(lblAliasUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 90, 30));
+        pnlEstadistica.add(lblAliasUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 220, 30));
 
         lblEsNivel.setFont(new java.awt.Font("Fairview Small Caps", 0, 24)); // NOI18N
         lblEsNivel.setForeground(new java.awt.Color(255, 255, 255));
@@ -221,7 +221,7 @@ public class Estadistica extends javax.swing.JDialog {
         lblEsPruebasHechas.setFont(new java.awt.Font("Fairview Small Caps", 0, 48)); // NOI18N
         lblEsPruebasHechas.setForeground(new java.awt.Color(220, 94, 94));
         lblEsPruebasHechas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEsPruebasHechas.setText("08");
+        lblEsPruebasHechas.setText("00");
         pnlEstadistica.add(lblEsPruebasHechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, -1));
 
         lblEsPruebaTotal.setFont(new java.awt.Font("Fairview Small Caps", 0, 36)); // NOI18N
@@ -234,7 +234,7 @@ public class Estadistica extends javax.swing.JDialog {
         lblEsPruebasTotales.setFont(new java.awt.Font("Fairview Small Caps", 0, 48)); // NOI18N
         lblEsPruebasTotales.setForeground(new java.awt.Color(220, 94, 94));
         lblEsPruebasTotales.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEsPruebasTotales.setText("10");
+        lblEsPruebasTotales.setText("00");
         pnlEstadistica.add(lblEsPruebasTotales, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, -1, -1));
 
         lblEsLogroTotal.setFont(new java.awt.Font("Fairview Small Caps", 0, 36)); // NOI18N
@@ -283,7 +283,7 @@ public class Estadistica extends javax.swing.JDialog {
         jLabel1.setText("Learn With Gerry");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        pnlEstadistica.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 20, 130, 90));
+        pnlEstadistica.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 10, 190, 90));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/animal174.png"))); // NOI18N
         pnlEstadistica.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 210, 390, 390));
@@ -375,7 +375,7 @@ public class Estadistica extends javax.swing.JDialog {
             lblEsLogrosTotales.setText(String.valueOf(l));
             ConexionBD.cerrarConexion();
             
-            ConexionBD.abrirConexion();
+              ConexionBD.abrirConexion();
             String SQL="SELECT COUNT(ID) as 'Total Pruebas' FROM prueba";
             PreparedStatement pst = ConexionBD.con.prepareStatement(SQL);
             ResultSet rst = pst.executeQuery();
@@ -386,7 +386,7 @@ public class Estadistica extends javax.swing.JDialog {
             }else{
                 lblEsPruebasTotales.setText(String.valueOf(dato));
             }
-            ConexionBD.cerrarConexion();
+              ConexionBD.cerrarConexion();
         } catch (SQLException ex) {
             Logger.getLogger(Estadistica.class.getName()).log(Level.SEVERE, null, ex);
         }

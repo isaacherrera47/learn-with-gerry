@@ -1,5 +1,6 @@
 package juegos.primero;
 
+import bd.ConexionBD;
 import clases.PerfilCarga;
 import util.Jugable;
 import util.Memorizable;
@@ -12,7 +13,11 @@ import util.Temporizador;
 import util.UtilVentana;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 import util.ColorFondo;
@@ -28,11 +33,11 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
     public Memorama(String tipo) {
         initComponents();
         extras = new UtilVentana(this);
-        tm = new Temporizador(pbTiempo, 2, 1, 20);
+        tm = new Temporizador(pbTiempo, 2, 0, 30);
         agregarPaneles(tipo);
         hilosFondo();
         serviciosAlFondo();
-        extras.maximizarPantalla();        
+        extras.maximizarPantalla();
     }
 
     @SuppressWarnings("unchecked")
@@ -48,6 +53,7 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
         notif.setForeground(new java.awt.Color(102, 102, 102));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setMinimumSize(new java.awt.Dimension(1200, 700));
         setUndecorated(true);
         setResizable(false);
@@ -206,6 +212,12 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
     @Override
     public void estadoTemporizador() {
         if (!tm.isCronometroActivo()) {
+            if (realizado) {
+                registrarPrueba(1);
+            } else {
+                registrarPrueba(0);
+            }
+            servicioLogro.detenerServicio();
             detenerServicios();
         }
     }
@@ -242,10 +254,9 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
             errores = 0;
             tm.agregarPenalizacion(3);
             notif.setText("UUUUUUH! -3");
-            UtilPerfil.mandarNotificacion(ColorFondo.MENSAJE_ADVERTENCIA, pbTiempo, notif);
+            UtilPerfil.mandarNotificacion(ColorFondo.MENSAJE_BIEN, pbTiempo, notif);
         }
     }
-
 
     @Override
     public final void serviciosAlFondo() {
@@ -270,14 +281,14 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
                 if (!tm.isCronometroActivo() && contadorGanador == pares - 1) {
                     if (!servicioLogro.listaDesbloqueados.contains(18)) {
                         servicioLogro.insertarLogroUsuario(PerfilCarga.getNick(), 18);
-                        UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(18).getNombre(), 
+                        UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(18).getNombre(),
                                 servicioLogro.listaLogros.get(18).getDescripcion()));
                     }
                 }
                 if (tm.getTipoTemp() == 1 && (tm.getSegundos() <= 59 && tm.getMinutos() == 0)) {
                     if (!servicioLogro.listaDesbloqueados.contains(19)) {
                         servicioLogro.insertarLogroUsuario(PerfilCarga.getNick(), 19);
-                        UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(19).getNombre(), 
+                        UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(19).getNombre(),
                                 servicioLogro.listaLogros.get(19).getDescripcion()));
                     }
                 }
@@ -293,6 +304,22 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
         servicioLogro.iniciarServicio();
     }
 
+    private void registrarPrueba(int estado) {
+        try {
+            ConexionBD.abrirConexion();
+            String sql = "INSERT INTO pruebausuario(idprueba,iduser,tipotiempo,tiempo,estado) values(?,?,'regresivo','00:00:00',?)";
+            PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
+            ps.setInt(1, 1);
+            ps.setString(2, PerfilCarga.getNick());
+            ps.setInt(3, estado);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Memorama.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConexionBD.cerrarConexion();
+        }
+    }
+
     UtilVentana extras;
     Timer t1;
     UtilLogro servicioLogro;
@@ -305,6 +332,5 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
     int contadorGanador = 0;
     int contadorPerdedor = 0;
     Temporizador tm;
-    
 
 }

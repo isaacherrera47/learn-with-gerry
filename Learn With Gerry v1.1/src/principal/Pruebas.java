@@ -30,7 +30,7 @@ public class Pruebas extends javax.swing.JDialog {
         UtilPrueba.obtenerPrueba(PerfilCarga.getGrado(), lista);
         DescripcionPrueba prueba;
         for (int i = 0; i < lista.size(); i++) {
-            prueba = new DescripcionPrueba(lista.get(i).getIdPrueba());
+            prueba = new DescripcionPrueba(lista.get(i).getIdPrueba(),this);
             prueba.lblTitulo.setText(lista.get(i).getNombre());
             prueba.lblDescripcion.setText(lista.get(i).getDescripcion());
             pnlPrueba.add(prueba);

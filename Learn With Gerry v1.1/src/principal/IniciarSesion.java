@@ -73,6 +73,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         pnlPrincipal.setBackground(new java.awt.Color(204, 51, 51));
 
         btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/chat.png"))); // NOI18N
+        btnAyuda.setToolTipText("Ayuda");
         btnAyuda.setContentAreaFilled(false);
         btnAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAyuda.setFocusPainted(false);
@@ -85,6 +86,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         btnRegistrarse.setFont(new java.awt.Font("Walkway Bold", 0, 18)); // NOI18N
         btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/profle.png"))); // NOI18N
+        btnRegistrarse.setToolTipText("Registro");
         btnRegistrarse.setContentAreaFilled(false);
         btnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrarse.setFocusPainted(false);
@@ -95,6 +97,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         });
 
         btnInicioSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/gerbtn.png"))); // NOI18N
+        btnInicioSesion.setToolTipText("Iniciar");
         btnInicioSesion.setContentAreaFilled(false);
         btnInicioSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicioSesion.setFocusPainted(false);
@@ -165,7 +168,7 @@ public class IniciarSesion extends javax.swing.JFrame {
                         .addGap(84, 84, 84)
                         .addComponent(lblTituloSesion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
         pnlInicioSesionLayout.setVerticalGroup(
             pnlInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,24 +293,24 @@ public class IniciarSesion extends javax.swing.JFrame {
         lblH1.setForeground(new java.awt.Color(102, 102, 102));
         lblH1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/us.PNG"))); // NOI18N
         lblH1.setText("En este campo escribe tu nombre de usuario");
-        lblH1.setFont(new java.awt.Font("KG Beneath Your Beautiful Chunk", 0, 20)); // NOI18N
-        pnlAyuda.add(lblH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 700, 111));
+        lblH1.setFont(new java.awt.Font("Are You Freakin' Serious ", 0, 20)); // NOI18N
+        pnlAyuda.add(lblH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 700, 111));
 
         lblH2.setForeground(new java.awt.Color(102, 102, 102));
         lblH2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/pass.PNG"))); // NOI18N
         lblH2.setText("En este campo debes seleccionar tu mascota favorita.\nRecuerda que debe ser la misma que escogiste al registrarte.");
-        lblH2.setFont(new java.awt.Font("KG Beneath Your Beautiful Chunk", 0, 20)); // NOI18N
+        lblH2.setFont(new java.awt.Font("Are You Freakin' Serious ", 0, 20)); // NOI18N
         lblH2.setLineWrap(true);
         pnlAyuda.add(lblH2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 670, 111));
 
         lblH3.setForeground(new java.awt.Color(102, 102, 102));
         lblH3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/profle2.png"))); // NOI18N
         lblH3.setText("Selecciona esta opción para registrarte y disfrutar de la máxima experiencia de juego con Gerry y sus amigos.");
-        lblH3.setFont(new java.awt.Font("KG Beneath Your Beautiful Chunk", 0, 20)); // NOI18N
+        lblH3.setFont(new java.awt.Font("Are You Freakin' Serious ", 0, 20)); // NOI18N
         lblH3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         lblH3.setIconTextGap(20);
         lblH3.setLineWrap(true);
-        pnlAyuda.add(lblH3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 610, 80));
+        pnlAyuda.add(lblH3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 610, 80));
 
         pnlContenedor.add(pnlAyuda, "crdAyuda");
 
