@@ -1029,7 +1029,7 @@ public class PerfilJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_avatarPropertyChange
 
     private void btnAcercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcercaActionPerformed
-        new AcercaDe(this, true).setVisible(true);
+        
     }//GEN-LAST:event_btnAcercaActionPerformed
     // Cambia el fondo de la ventana de perfil
     private void cambiarFondo(JButton boton) {

@@ -6,6 +6,7 @@
 
 package extras;
 
+import javax.swing.JDialog;
 import util.UtilPrueba;
 
 /**
@@ -18,9 +19,11 @@ public class DescripcionPrueba extends javax.swing.JPanel {
      * Creates new form DescripcionPruebas
      */
     int idPrueba;
-    public DescripcionPrueba(int idPrueba) {
+    JDialog parent;
+    public DescripcionPrueba(int idPrueba, JDialog parent) {
         initComponents();
         this.idPrueba = idPrueba;
+        this.parent = parent;
     }
 
     /**
@@ -125,6 +128,7 @@ public class DescripcionPrueba extends javax.swing.JPanel {
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         UtilPrueba.lanzarPrueba(idPrueba);
+        parent.dispose();
     }//GEN-LAST:event_btnJugarActionPerformed
 
 
