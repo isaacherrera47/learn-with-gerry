@@ -61,7 +61,7 @@ public class Pruebas extends javax.swing.JDialog {
 
         txtImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/joystick5.png"))); // NOI18N
 
-        lblImagenLog.setFont(new java.awt.Font("Lavanderia Regular", 0, 14)); // NOI18N
+        lblImagenLog.setFont(new java.awt.Font("olivier", 0, 14)); // NOI18N
         lblImagenLog.setForeground(new java.awt.Color(255, 255, 255));
         lblImagenLog.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImagenLog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/olympic.png"))); // NOI18N
@@ -94,7 +94,7 @@ public class Pruebas extends javax.swing.JDialog {
             .addGroup(pnlPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblImagenLog)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                 .addComponent(txtImagen))
             .addComponent(scrollPrueba)
         );

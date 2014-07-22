@@ -110,10 +110,10 @@ public class IniciarSesion extends javax.swing.JFrame {
         pnlContenedor.setOpaque(false);
         pnlContenedor.setLayout(new java.awt.CardLayout());
 
-        pnlInicioSesion.setAncho(15);
+        pnlInicioSesion.setAncho(30);
+        pnlInicioSesion.setColorDeBorde(new java.awt.Color(255, 255, 255));
         pnlInicioSesion.setColorPrimario(new java.awt.Color(255, 255, 255));
-        pnlInicioSesion.setColorSecundario(new java.awt.Color(230, 222, 222));
-        pnlInicioSesion.setDistancia(15);
+        pnlInicioSesion.setColorSecundario(new java.awt.Color(255, 255, 255));
         pnlInicioSesion.setGradiente(org.edisoncor.gui.panel.Panel.Gradiente.CIRCULAR);
         pnlInicioSesion.setOrientacion(org.edisoncor.gui.panel.PanelLlamada.Orientacion.RIGHT);
 
@@ -145,10 +145,13 @@ public class IniciarSesion extends javax.swing.JFrame {
         cbxAnimalPref.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Perro", "Gato", "Jirafa", "Pez", "Víbora", "Mono", "Oso", "Vaca", "Burro", "Caballo", "Pollo", "Pato", "Ganso", "Gallina", "Ratón", "Águila", "Conejo", "Delfín", "Camaleón", "Cocodrilo", "León", "Tigre", "Tucán" }));
         cbxAnimalPref.setBorder(null);
 
-        lblTituloSesion.setFont(new java.awt.Font("Please write me a song", 0, 24)); // NOI18N
+        lblTituloSesion.setFont(new java.awt.Font("Patrick Hand SC", 0, 24)); // NOI18N
         lblTituloSesion.setForeground(new java.awt.Color(102, 102, 102));
+        lblTituloSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTituloSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/key.png"))); // NOI18N
         lblTituloSesion.setText("¡Inicia ya!");
+        lblTituloSesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblTituloSesion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout pnlInicioSesionLayout = new javax.swing.GroupLayout(pnlInicioSesion);
         pnlInicioSesion.setLayout(pnlInicioSesionLayout);
@@ -157,25 +160,22 @@ public class IniciarSesion extends javax.swing.JFrame {
             .addGroup(pnlInicioSesionLayout.createSequentialGroup()
                 .addGap(227, 227, 227)
                 .addGroup(pnlInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInicioSesionLayout.createSequentialGroup()
-                            .addGroup(pnlInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(cbxAnimalPref, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(55, 55, 55))
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlInicioSesionLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(lblTituloSesion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                        .addComponent(cbxAnimalPref, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(238, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInicioSesionLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTituloSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(298, 298, 298))
         );
         pnlInicioSesionLayout.setVerticalGroup(
             pnlInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInicioSesionLayout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(lblTituloSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbxAnimalPref, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,10 +186,10 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         pnlContenedor.add(pnlInicioSesion, "crdSesion");
 
-        pnlRegistro.setAncho(15);
+        pnlRegistro.setAncho(30);
+        pnlRegistro.setColorDeBorde(new java.awt.Color(255, 255, 255));
         pnlRegistro.setColorPrimario(new java.awt.Color(255, 255, 255));
-        pnlRegistro.setColorSecundario(new java.awt.Color(230, 227, 227));
-        pnlRegistro.setDistancia(15);
+        pnlRegistro.setColorSecundario(new java.awt.Color(255, 255, 255));
         pnlRegistro.setGradiente(org.edisoncor.gui.panel.Panel.Gradiente.CIRCULAR);
         pnlRegistro.setOrientacion(org.edisoncor.gui.panel.PanelLlamada.Orientacion.TOP);
         pnlRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -198,7 +198,9 @@ public class IniciarSesion extends javax.swing.JFrame {
         labelTitulo.setForeground(new java.awt.Color(102, 102, 102));
         labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/nvoUsuariohelp.png"))); // NOI18N
         labelTitulo.setText("Mi registro - Learn with Gerry");
-        pnlRegistro.add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+        labelTitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        labelTitulo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pnlRegistro.add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 410, -1));
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cancelar.png"))); // NOI18N
         btnCancelar.setBorderPainted(false);
@@ -275,33 +277,35 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         pnlContenedor.add(pnlRegistro, "crdRegistro");
 
-        pnlAyuda.setAncho(15);
+        pnlAyuda.setAncho(30);
+        pnlAyuda.setColorDeBorde(new java.awt.Color(255, 255, 255));
         pnlAyuda.setColorPrimario(new java.awt.Color(255, 255, 255));
-        pnlAyuda.setColorSecundario(new java.awt.Color(229, 225, 225));
+        pnlAyuda.setColorSecundario(new java.awt.Color(255, 255, 255));
+        pnlAyuda.setDistancia(5);
         pnlAyuda.setGradiente(org.edisoncor.gui.panel.Panel.Gradiente.CIRCULAR);
         pnlAyuda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setBackground(new java.awt.Color(0, 153, 102));
-        lblTitulo.setFont(new java.awt.Font("Please write me a song", 0, 24)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Please write me a song", 0, 36)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(102, 102, 102));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/infohelp.png"))); // NOI18N
         lblTitulo.setText("Menú Ayuda");
         lblTitulo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        pnlAyuda.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 20, 758, 111));
+        pnlAyuda.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 350, 50));
 
         lblH1.setForeground(new java.awt.Color(102, 102, 102));
         lblH1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/us.PNG"))); // NOI18N
         lblH1.setText("En este campo escribe tu nombre de usuario");
         lblH1.setFont(new java.awt.Font("Are You Freakin' Serious ", 0, 20)); // NOI18N
-        pnlAyuda.add(lblH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 700, 111));
+        pnlAyuda.add(lblH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 540, 111));
 
         lblH2.setForeground(new java.awt.Color(102, 102, 102));
         lblH2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/pass.PNG"))); // NOI18N
         lblH2.setText("En este campo debes seleccionar tu mascota favorita.\nRecuerda que debe ser la misma que escogiste al registrarte.");
         lblH2.setFont(new java.awt.Font("Are You Freakin' Serious ", 0, 20)); // NOI18N
         lblH2.setLineWrap(true);
-        pnlAyuda.add(lblH2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 670, 111));
+        pnlAyuda.add(lblH2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 610, 111));
 
         lblH3.setForeground(new java.awt.Color(102, 102, 102));
         lblH3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/profle2.png"))); // NOI18N

@@ -44,7 +44,6 @@ public class Grado extends javax.swing.JDialog {
         pnlDGrados = new javax.swing.JPanel();
         lblTituloIGrados = new javax.swing.JLabel();
         lblGradoActual = new javax.swing.JLabel();
-        btnPasarNivel1 = new javax.swing.JButton();
         btnPasarNivel8 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -161,22 +160,6 @@ public class Grado extends javax.swing.JDialog {
         lblGradoActual.setText("3°");
         pnlDGrados.add(lblGradoActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 90, 50));
 
-        btnPasarNivel1.setBackground(new java.awt.Color(199, 13, 13));
-        btnPasarNivel1.setFont(new java.awt.Font("Fairview Small Caps", 0, 24)); // NOI18N
-        btnPasarNivel1.setForeground(new java.awt.Color(255, 255, 255));
-        btnPasarNivel1.setText("Salir");
-        btnPasarNivel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnPasarNivel1.setBorderPainted(false);
-        btnPasarNivel1.setContentAreaFilled(false);
-        btnPasarNivel1.setFocusPainted(false);
-        btnPasarNivel1.setOpaque(true);
-        btnPasarNivel1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPasarNivel1ActionPerformed(evt);
-            }
-        });
-        pnlDGrados.add(btnPasarNivel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 180, 40));
-
         btnPasarNivel8.setBackground(new java.awt.Color(199, 13, 13));
         btnPasarNivel8.setFont(new java.awt.Font("Fairview Small Caps", 0, 24)); // NOI18N
         btnPasarNivel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,12 +188,6 @@ public class Grado extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnPasarNivel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasarNivel1ActionPerformed
-        this.dispose();
-        PerfilJugador perfil = new PerfilJugador();
-        perfil.setVisible(true);
-    }//GEN-LAST:event_btnPasarNivel1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,7 +232,6 @@ public class Grado extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPasarNivel1;
     private javax.swing.JButton btnPasarNivel2;
     private javax.swing.JButton btnPasarNivel3;
     private javax.swing.JButton btnPasarNivel4;

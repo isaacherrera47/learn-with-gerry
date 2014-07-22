@@ -79,7 +79,6 @@ public class Estadistica extends javax.swing.JDialog {
         lblEsLogrosTotales = new javax.swing.JLabel();
         lblEsLogroLogrado = new javax.swing.JLabel();
         lblLogrosLogrados = new javax.swing.JLabel();
-        btnEsSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnJugar = new javax.swing.JButton();
@@ -260,23 +259,7 @@ public class Estadistica extends javax.swing.JDialog {
         lblLogrosLogrados.setText("02");
         pnlEstadistica.add(lblLogrosLogrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, -1, -1));
 
-        btnEsSalir.setBackground(new java.awt.Color(220, 94, 94));
-        btnEsSalir.setFont(new java.awt.Font("Fairview Small Caps", 0, 24)); // NOI18N
-        btnEsSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnEsSalir.setText("Salir");
-        btnEsSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnEsSalir.setBorderPainted(false);
-        btnEsSalir.setContentAreaFilled(false);
-        btnEsSalir.setFocusPainted(false);
-        btnEsSalir.setOpaque(true);
-        btnEsSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEsSalirActionPerformed(evt);
-            }
-        });
-        pnlEstadistica.add(btnEsSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, 100, 30));
-
-        jLabel1.setFont(new java.awt.Font("Lavanderia Regular", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/olympic.png"))); // NOI18N
@@ -313,10 +296,6 @@ public class Estadistica extends javax.swing.JDialog {
         //Abre la ventana para cambiar el avatar
 
     }//GEN-LAST:event_avatarMouseClicked
-
-    private void btnEsSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsSalirActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnEsSalirActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
        cargarDatos();
@@ -435,7 +414,6 @@ public class Estadistica extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.xzq.osc.JocLabel avatar;
-    private javax.swing.JButton btnEsSalir;
     private javax.swing.JButton btnJugar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JDialog dlgDetalles;
