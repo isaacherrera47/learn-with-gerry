@@ -60,7 +60,6 @@ public class PerfilJugador extends javax.swing.JFrame {
         lblSonido = new javax.swing.JLabel();
         lblColor = new javax.swing.JLabel();
         btnColor = new javax.swing.JButton();
-        btnAcerca = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         dlgCambiarFondo = new javax.swing.JDialog();
         pnlCambiarFondo = new javax.swing.JPanel();
@@ -344,21 +343,6 @@ public class PerfilJugador extends javax.swing.JFrame {
             }
         });
 
-        btnAcerca.setFont(new java.awt.Font("olivier", 0, 18)); // NOI18N
-        btnAcerca.setForeground(new java.awt.Color(102, 102, 102));
-        btnAcerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/sh.png"))); // NOI18N
-        btnAcerca.setText("Acerca de...");
-        btnAcerca.setBorderPainted(false);
-        btnAcerca.setContentAreaFilled(false);
-        btnAcerca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAcerca.setFocusPainted(false);
-        btnAcerca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnAcerca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcercaActionPerformed(evt);
-            }
-        });
-
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/chk.png"))); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
@@ -390,8 +374,6 @@ public class PerfilJugador extends javax.swing.JFrame {
                         .addComponent(lblOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlOpcionesLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnAcerca)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
@@ -410,10 +392,8 @@ public class PerfilJugador extends javax.swing.JFrame {
                         .addComponent(lblColor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnColor, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAcerca, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
 
@@ -1027,10 +1007,6 @@ public class PerfilJugador extends javax.swing.JFrame {
             UtilPerfil.mandarNotificacionLogro(avatar, new PopupLogro("cocodrilo", "¡Muy curioso!", "Cambia por primera vez el avatar"));
         }
     }//GEN-LAST:event_avatarPropertyChange
-
-    private void btnAcercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcercaActionPerformed
-        
-    }//GEN-LAST:event_btnAcercaActionPerformed
     // Cambia el fondo de la ventana de perfil
     private void cambiarFondo(JButton boton) {
         dlgCambiarFondo.setVisible(false);
@@ -1126,7 +1102,6 @@ public class PerfilJugador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel avatar;
     private javax.swing.ButtonGroup btgAvatar;
-    private javax.swing.JButton btnAcerca;
     private javax.swing.JToggleButton btnAvatarEspecial;
     private javax.swing.JToggleButton btnAvatarHombre;
     private javax.swing.JToggleButton btnAvatarMujer;
