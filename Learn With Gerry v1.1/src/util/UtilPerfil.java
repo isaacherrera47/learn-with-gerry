@@ -122,7 +122,7 @@ public class UtilPerfil {
     public static void llenarRankingGrado(ArrayList lista, String grado) {
         try {
             ConexionBD.abrirConexion();
-            String sql = "select * from rankingUsuario where grado= ?;";
+            String sql = "select * from rankingusuario where grado= ?;";
             PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
             ps.setString(1, grado);
             ResultSet rs = ps.executeQuery();

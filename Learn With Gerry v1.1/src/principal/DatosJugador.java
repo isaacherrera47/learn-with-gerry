@@ -24,6 +24,7 @@ public class DatosJugador extends javax.swing.JDialog {
         listaAlias = new ArrayList<>();
         fondo = pnl.getBackground();   
         cargarAlias();
+        setLocationRelativeTo(parent);
     }
 
 
