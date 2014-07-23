@@ -192,6 +192,7 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
             if (contadorGanador == pares - 1 && seleccionados.size() == 2) {
                 añadeAciertoSeguido();
                 desatarBonoPenalizacion();
+                realizado = true;
                 return 1;
             }
             return 0;
@@ -323,7 +324,7 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
     UtilVentana extras;
     Timer t1;
     UtilLogro servicioLogro;
-    private boolean realizado;
+    private boolean realizado = false;
     private int paresSeguidos = 0;
     private int bonSeguidas = 0;
     private int errores = 0;
