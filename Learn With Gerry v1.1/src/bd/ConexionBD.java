@@ -14,7 +14,7 @@ public class ConexionBD {
 
     public static Connection con;
     private static final String usuario = "root";
-    private static final String pass = "1234";
+    private static final String pass = "";
 
     public static void cerrarConexion(){
         try {

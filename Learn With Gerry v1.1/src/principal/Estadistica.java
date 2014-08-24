@@ -17,7 +17,6 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import clases.Estadisticas;
 import extras.DescripcionDetalles;
-import java.sql.CallableStatement;
 import util.UtilDetalles;
 
 /**
@@ -86,6 +85,11 @@ public class Estadistica extends javax.swing.JDialog {
         dlgDetalles.setMinimumSize(new java.awt.Dimension(1000, 400));
         dlgDetalles.setUndecorated(true);
         dlgDetalles.setResizable(false);
+        dlgDetalles.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                dlgDetallesComponentShown(evt);
+            }
+        });
 
         pnlPrincipal.setBackground(new java.awt.Color(199, 13, 13));
 
@@ -309,6 +313,10 @@ public class Estadistica extends javax.swing.JDialog {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         dlgDetalles.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void dlgDetallesComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_dlgDetallesComponentShown
+        lblImagenA.setIcon(new ImageIcon(getClass().getResource("/recursos/perfil/redim/"+PerfilCarga.getCodAvatar()+".png")));
+    }//GEN-LAST:event_dlgDetallesComponentShown
     
     public void cargarDatos(){
         try {
