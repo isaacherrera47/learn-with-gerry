@@ -172,5 +172,34 @@ public class UtilPerfil {
             ConexionBD.cerrarConexion();
         }
     }
+    
+        public static ArrayList llenarListaSesiones() {
+        try {
+            ConexionBD.abrirConexion();
+            String sql = "select * from rankingusuario where grado not like '%visor%' order by nombre asc";            
+            PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            ArrayList lista = new ArrayList();
+            while (rs.next()) {
+                Perfil p = new Perfil();
+                p.setNombre(rs.getString("nombre"));
+                p.setApPat(rs.getString("ApPaterno"));
+                p.setApMat(rs.getString("ApMaterno"));
+                p.setAlias(rs.getString("Alias"));
+                p.setCodAvatar(rs.getInt("avatar"));
+                p.setColor(ColorFondo.obtenerColorPorID(rs.getInt("color")));
+                p.setGrado(rs.getString("grado"));
+                p.setUser(rs.getString("user"));
+                p.setNivel(rs.getInt("nivel"));
+                lista.add(p);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilPerfil.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConexionBD.cerrarConexion();
+        }
+        return null;
+    }
 
 }

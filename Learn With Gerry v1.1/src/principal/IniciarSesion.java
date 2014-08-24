@@ -1,15 +1,21 @@
 package principal;
 
+import clases.Perfil;
+import extras.PerfilSesion;
 import extras.PopupLogro;
-import util.AudioFondo;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
+import javax.swing.border.LineBorder;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.styles.BalloonTipStyle;
 import net.java.balloontip.styles.MinimalBalloonStyle;
+import net.java.balloontip.styles.ToolTipBalloonStyle;
 import net.java.balloontip.utils.FadingUtils;
 import net.java.balloontip.utils.TimingUtils;
+import util.AudioFondo;
 import util.ColorFondo;
 import util.UtilBD;
 import util.UtilPerfil;
@@ -21,14 +27,18 @@ import util.UtilPerfil;
 public class IniciarSesion extends javax.swing.JFrame {
 
     CardLayout cl;
-    UtilBD util;
+    public UtilBD util;
     BalloonTip b;
     BalloonTipStyle bs;
+    BalloonTip bT;
+    BalloonTipStyle bsT;
+    ArrayList<Perfil> listaSesiones;
 
     public IniciarSesion() {
         initComponents();
         cl = (CardLayout) pnlContenedor.getLayout();
         util = new UtilBD();
+        cargarDatos();
     }
 
     @SuppressWarnings("unchecked")
@@ -36,17 +46,16 @@ public class IniciarSesion extends javax.swing.JFrame {
     private void initComponents() {
 
         notif = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
         pnlPrincipal = new javax.swing.JPanel();
         btnAyuda = new javax.swing.JToggleButton();
         btnRegistrarse = new javax.swing.JButton();
         btnInicioSesion = new javax.swing.JButton();
         pnlContenedor = new javax.swing.JPanel();
-        pnlInicioSesion = new org.edisoncor.gui.panel.PanelLlamada();
-        txtUsuario = new org.edisoncor.gui.textField.TextFieldRectBackground();
-        btnIniciar = new javax.swing.JButton();
-        cbxAnimalPref = new javax.swing.JComboBox();
+        scrollSesion = new javax.swing.JScrollPane();
+        pnlInicioSesion = new javax.swing.JPanel();
         lblTituloSesion = new javax.swing.JLabel();
-        pnlRegistro = new org.edisoncor.gui.panel.PanelLlamada();
+        pnlRegistro = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
@@ -57,7 +66,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         cbxGrado = new javax.swing.JComboBox();
         cbxAnimalFavorito = new javax.swing.JComboBox();
         lblMensajeError = new org.jdesktop.swingx.JXLabel();
-        pnlAyuda = new org.edisoncor.gui.panel.PanelLlamada();
+        pnlAyuda = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         lblH1 = new org.jdesktop.swingx.JXLabel();
         lblH2 = new org.jdesktop.swingx.JXLabel();
@@ -66,6 +75,12 @@ public class IniciarSesion extends javax.swing.JFrame {
         notif.setFont(new java.awt.Font("Please write me a song", 0, 18)); // NOI18N
         notif.setForeground(new java.awt.Color(255, 255, 255));
 
+        titulo.setFont(new java.awt.Font("Please write me a song", 0, 48)); // NOI18N
+        titulo.setForeground(new java.awt.Color(255, 255, 255));
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        titulo.setText("jLabel1");
+        titulo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LwG - Iniciar sesión");
         setResizable(false);
@@ -73,77 +88,44 @@ public class IniciarSesion extends javax.swing.JFrame {
         pnlPrincipal.setBackground(new java.awt.Color(204, 51, 51));
 
         btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/chat.png"))); // NOI18N
-        btnAyuda.setToolTipText("Ayuda");
         btnAyuda.setContentAreaFilled(false);
-        btnAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAyuda.setFocusPainted(false);
-        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAyudaActionPerformed(evt);
+        btnAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAyudaMouseEntered(evt);
             }
         });
 
         btnRegistrarse.setFont(new java.awt.Font("Walkway Bold", 0, 18)); // NOI18N
         btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/profle.png"))); // NOI18N
-        btnRegistrarse.setToolTipText("Registro");
         btnRegistrarse.setContentAreaFilled(false);
-        btnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrarse.setFocusPainted(false);
-        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarseActionPerformed(evt);
+        btnRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarseMouseEntered(evt);
             }
         });
 
         btnInicioSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/gerbtn.png"))); // NOI18N
-        btnInicioSesion.setToolTipText("Iniciar");
         btnInicioSesion.setContentAreaFilled(false);
-        btnInicioSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicioSesion.setFocusPainted(false);
-        btnInicioSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInicioSesionActionPerformed(evt);
+        btnInicioSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnInicioSesionMouseEntered(evt);
             }
         });
 
         pnlContenedor.setOpaque(false);
         pnlContenedor.setLayout(new java.awt.CardLayout());
 
-        pnlInicioSesion.setAncho(30);
-        pnlInicioSesion.setColorDeBorde(new java.awt.Color(255, 255, 255));
-        pnlInicioSesion.setColorPrimario(new java.awt.Color(255, 255, 255));
-        pnlInicioSesion.setColorSecundario(new java.awt.Color(255, 255, 255));
-        pnlInicioSesion.setGradiente(org.edisoncor.gui.panel.Panel.Gradiente.CIRCULAR);
-        pnlInicioSesion.setOrientacion(org.edisoncor.gui.panel.PanelLlamada.Orientacion.RIGHT);
+        scrollSesion.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollSesion.setPreferredSize(new java.awt.Dimension(700, 458));
 
-        txtUsuario.setForeground(new java.awt.Color(102, 102, 102));
-        txtUsuario.setCaretColor(new java.awt.Color(173, 173, 173));
-        txtUsuario.setColorDeTextoBackground(new java.awt.Color(153, 153, 153));
-        txtUsuario.setDescripcion("Usuario");
-        txtUsuario.setFont(new java.awt.Font("Please write me a song", 0, 24)); // NOI18N
-        txtUsuario.setLeft(java.lang.Boolean.FALSE);
-
-        btnIniciar.setBackground(new java.awt.Color(0, 153, 153));
-        btnIniciar.setFont(new java.awt.Font("Moon Flower Bold", 0, 30)); // NOI18N
-        btnIniciar.setForeground(new java.awt.Color(255, 255, 255));
-        btnIniciar.setText("Jugar");
-        btnIniciar.setContentAreaFilled(false);
-        btnIniciar.setOpaque(true);
-        btnIniciar.setContentAreaFilled(false);
-        btnIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnIniciar.setFocusPainted(false);
-        btnIniciar.setOpaque(true);
-        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarActionPerformed(evt);
-            }
-        });
-
-        cbxAnimalPref.setFont(new java.awt.Font("Please write me a song", 0, 24)); // NOI18N
-        cbxAnimalPref.setForeground(new java.awt.Color(102, 102, 102));
-        cbxAnimalPref.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Perro", "Gato", "Jirafa", "Pez", "Víbora", "Mono", "Oso", "Vaca", "Burro", "Caballo", "Pollo", "Pato", "Ganso", "Gallina", "Ratón", "Águila", "Conejo", "Delfín", "Camaleón", "Cocodrilo", "León", "Tigre", "Tucán" }));
-        cbxAnimalPref.setBorder(null);
+        pnlInicioSesion.setBackground(new java.awt.Color(255, 255, 255));
+        org.jdesktop.swingx.VerticalLayout verticalLayout1 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout1.setGap(5);
+        pnlInicioSesion.setLayout(verticalLayout1);
 
         lblTituloSesion.setFont(new java.awt.Font("Patrick Hand SC", 0, 24)); // NOI18N
         lblTituloSesion.setForeground(new java.awt.Color(102, 102, 102));
@@ -152,46 +134,13 @@ public class IniciarSesion extends javax.swing.JFrame {
         lblTituloSesion.setText("¡Inicia ya!");
         lblTituloSesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblTituloSesion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pnlInicioSesion.add(lblTituloSesion);
 
-        javax.swing.GroupLayout pnlInicioSesionLayout = new javax.swing.GroupLayout(pnlInicioSesion);
-        pnlInicioSesion.setLayout(pnlInicioSesionLayout);
-        pnlInicioSesionLayout.setHorizontalGroup(
-            pnlInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlInicioSesionLayout.createSequentialGroup()
-                .addGap(227, 227, 227)
-                .addGroup(pnlInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-                        .addComponent(cbxAnimalPref, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(238, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInicioSesionLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTituloSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(298, 298, 298))
-        );
-        pnlInicioSesionLayout.setVerticalGroup(
-            pnlInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInicioSesionLayout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addComponent(lblTituloSesion)
-                .addGap(18, 18, 18)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbxAnimalPref, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
-        );
+        scrollSesion.setViewportView(pnlInicioSesion);
 
-        pnlContenedor.add(pnlInicioSesion, "crdSesion");
+        pnlContenedor.add(scrollSesion, "crdSesion");
 
-        pnlRegistro.setAncho(30);
-        pnlRegistro.setColorDeBorde(new java.awt.Color(255, 255, 255));
-        pnlRegistro.setColorPrimario(new java.awt.Color(255, 255, 255));
-        pnlRegistro.setColorSecundario(new java.awt.Color(255, 255, 255));
-        pnlRegistro.setGradiente(org.edisoncor.gui.panel.Panel.Gradiente.CIRCULAR);
-        pnlRegistro.setOrientacion(org.edisoncor.gui.panel.PanelLlamada.Orientacion.TOP);
+        pnlRegistro.setBackground(new java.awt.Color(255, 255, 255));
         pnlRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelTitulo.setFont(new java.awt.Font("Give It Your Heart", 0, 36)); // NOI18N
@@ -277,12 +226,7 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         pnlContenedor.add(pnlRegistro, "crdRegistro");
 
-        pnlAyuda.setAncho(30);
-        pnlAyuda.setColorDeBorde(new java.awt.Color(255, 255, 255));
-        pnlAyuda.setColorPrimario(new java.awt.Color(255, 255, 255));
-        pnlAyuda.setColorSecundario(new java.awt.Color(255, 255, 255));
-        pnlAyuda.setDistancia(5);
-        pnlAyuda.setGradiente(org.edisoncor.gui.panel.Panel.Gradiente.CIRCULAR);
+        pnlAyuda.setBackground(new java.awt.Color(255, 255, 255));
         pnlAyuda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setBackground(new java.awt.Color(0, 153, 102));
@@ -326,14 +270,14 @@ public class IniciarSesion extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPrincipalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRegistrarse)
-                .addGap(480, 480, 480))
+                .addGap(473, 473, 473))
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,25 +302,6 @@ public class IniciarSesion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaActionPerformed
-        cl.show(pnlContenedor, "crdAyuda");
-    }//GEN-LAST:event_btnAyudaActionPerformed
-
-    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        if (util.cargarPerfil(txtUsuario.getText(), cbxAnimalPref.getSelectedItem().toString())) {
-            this.dispose();
-            new PerfilJugador().setVisible(true);
-            AudioFondo.eliminarHiloSonido();
-        } else {
-            mandarNotificacion("Hubo un error, intenta de nuevo", btnIniciar, ColorFondo.MENSAJE_ERROR);
-        }
-
-    }//GEN-LAST:event_btnIniciarActionPerformed
-
-    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-        cl.show(pnlContenedor, "crdRegistro");
-    }//GEN-LAST:event_btnRegistrarseActionPerformed
-
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         borrarCampos();
         mandarNotificacion("Datos borrados", btnCancelar, ColorFondo.MENSAJE_ADVERTENCIA);
@@ -386,9 +311,9 @@ public class IniciarSesion extends javax.swing.JFrame {
         if (comprobarCampos()) {
             if (util.llenarPerfil(txtNombreUsuario.getText(), cbxAnimalFavorito.getSelectedItem().toString(), cbxGrado.getSelectedIndex(), txtNombre.getText(), txtApPaterno.getText(), txtApMaterno.getText()) == 1) {
                 UtilBD.desatarLogroID(1, txtNombreUsuario.getText());
-                UtilPerfil.mandarNotificacionLogro(btnIniciar, new PopupLogro("oso", "¡Qué comience el juego!", "Inicia por primera vez una partida"));
-                cl.show(pnlContenedor, "crdSesion");                
-                UtilBD.desatarLogroID((cbxGrado.getSelectedIndex()+9), txtNombreUsuario.getText());
+                UtilPerfil.mandarNotificacionLogro(btnRegistrarse, new PopupLogro("oso", "¡Qué comience el juego!", "Inicia por primera vez una partida"));
+                cl.show(pnlContenedor, "crdSesion");
+                UtilBD.desatarLogroID((cbxGrado.getSelectedIndex() + 9), txtNombreUsuario.getText());
                 UtilPerfil.mandarNotificacionLogro(btnInicioSesion, new PopupLogro("leon", "¡Empezando por aquí!", "Inicia un grado en el juego"));
                 borrarCampos();
             }
@@ -397,14 +322,26 @@ public class IniciarSesion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void btnInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesionActionPerformed
-        cl.show(pnlContenedor, "crdSesion");
-    }//GEN-LAST:event_btnInicioSesionActionPerformed
-
     private void txtNombreUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreUsuarioFocusLost
         comprobarExisteUsuario();
     }//GEN-LAST:event_txtNombreUsuarioFocusLost
+
+    private void btnRegistrarseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseEntered
+        cl.show(pnlContenedor, "crdRegistro");
+        seleccionOpcion("Registro", ColorFondo.VERDE.getColor());
+    }//GEN-LAST:event_btnRegistrarseMouseEntered
+
+    private void btnInicioSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioSesionMouseEntered
+        cl.show(pnlContenedor, "crdSesion");
+        seleccionOpcion("Iniciar", ColorFondo.ROJO.getColor());
+    }//GEN-LAST:event_btnInicioSesionMouseEntered
+
+    private void btnAyudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAyudaMouseEntered
+        cl.show(pnlContenedor, "crdAyuda");
+        seleccionOpcion("Ayuda", ColorFondo.NARANJA.getColor());
+    }//GEN-LAST:event_btnAyudaMouseEntered
     // Método para limpiar los campos del registro
+
     private void borrarCampos() {
         txtNombre.setText(null);
         txtApPaterno.setText(null);
@@ -476,7 +413,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         }
     }
 
-    private void mandarNotificacion(String texto, JComponent componente, int tipoMensaje) {
+    public void mandarNotificacion(String texto, JComponent componente, int tipoMensaje) {
         notif.setText(texto);
         switch (tipoMensaje) {
             case 3:
@@ -492,6 +429,35 @@ public class IniciarSesion extends javax.swing.JFrame {
         b = new BalloonTip(componente, notif, bs, false);
         FadingUtils.fadeInBalloon(b, null, 300, 24);
         TimingUtils.showTimedBalloon(b, 2000);
+    }
+
+    private void seleccionOpcion(String texto, Color color) {
+        if (bT != null) {
+            TimingUtils.showTimedBalloon(bT, 1);
+        }
+        titulo.setText(texto);
+        bsT = new ToolTipBalloonStyle(color, color);
+        bT = new BalloonTip(btnAyuda, titulo, bsT, BalloonTip.Orientation.RIGHT_ABOVE, BalloonTip.AttachLocation.NORTHEAST, 50, 180, false);
+        FadingUtils.fadeInBalloon(bT, null, 300, 10);
+        pnlPrincipal.setBackground(color);
+    }
+    
+    private void cargarDatos(){
+        listaSesiones = UtilPerfil.llenarListaSesiones();
+        PerfilSesion ps;
+        for (int i = 0; i < listaSesiones.size(); i++) {
+            ps = new PerfilSesion(this);
+            String nombre= listaSesiones.get(i).getNombre()+" "+listaSesiones.get(i).getApPat()+" "+listaSesiones.get(i).getApMat();
+            ps.lblNombre.setText(nombre);
+            ps.lblNick.setText(listaSesiones.get(i).getUser());
+            ps.lblGrado.setText(listaSesiones.get(i).getGrado());
+            ps.avatar.setIcon(new ImageIcon(getClass().getResource("/recursos/perfil/"+listaSesiones.get(i).getCodAvatar()+".png")));
+            ps.setBorder(new LineBorder(listaSesiones.get(i).getColor(), 2));
+            ps.btnEntrar.setBackground(listaSesiones.get(i).getColor());
+            pnlInicioSesion.add(ps);
+        }
+        pnlInicioSesion.repaint();
+        repaint();
     }
 
     public static void main(String args[]) {
@@ -530,11 +496,9 @@ public class IniciarSesion extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnAyuda;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnInicioSesion;
     private javax.swing.JButton btnRegistrarse;
     private javax.swing.JComboBox cbxAnimalFavorito;
-    private javax.swing.JComboBox cbxAnimalPref;
     private javax.swing.JComboBox cbxGrado;
     private javax.swing.JLabel labelTitulo;
     private org.jdesktop.swingx.JXLabel lblH1;
@@ -544,15 +508,16 @@ public class IniciarSesion extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTituloSesion;
     private javax.swing.JLabel notif;
-    private org.edisoncor.gui.panel.PanelLlamada pnlAyuda;
+    private javax.swing.JPanel pnlAyuda;
     private javax.swing.JPanel pnlContenedor;
-    private org.edisoncor.gui.panel.PanelLlamada pnlInicioSesion;
+    private javax.swing.JPanel pnlInicioSesion;
     private javax.swing.JPanel pnlPrincipal;
-    private org.edisoncor.gui.panel.PanelLlamada pnlRegistro;
+    private javax.swing.JPanel pnlRegistro;
+    private javax.swing.JScrollPane scrollSesion;
+    private javax.swing.JLabel titulo;
     private org.edisoncor.gui.textField.TextFieldRectBackground txtApMaterno;
     private org.edisoncor.gui.textField.TextFieldRectBackground txtApPaterno;
     private org.edisoncor.gui.textField.TextFieldRectBackground txtNombre;
     private org.edisoncor.gui.textField.TextFieldRectBackground txtNombreUsuario;
-    private org.edisoncor.gui.textField.TextFieldRectBackground txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
