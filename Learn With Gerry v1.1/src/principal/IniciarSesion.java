@@ -316,6 +316,9 @@ public class IniciarSesion extends javax.swing.JFrame {
                 UtilBD.desatarLogroID((cbxGrado.getSelectedIndex() + 9), txtNombreUsuario.getText());
                 UtilPerfil.mandarNotificacionLogro(btnInicioSesion, new PopupLogro("leon", "¡Empezando por aquí!", "Inicia un grado en el juego"));
                 borrarCampos();
+                pnlInicioSesion.removeAll();
+                pnlInicioSesion.add(lblTituloSesion);
+                cargarDatos();
             }
         } else {
             mandarNotificacion("Hubo un error, por favor revisa tus datos :-(", btnCancelar, ColorFondo.MENSAJE_ERROR);

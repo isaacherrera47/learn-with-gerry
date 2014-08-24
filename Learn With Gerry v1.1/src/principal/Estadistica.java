@@ -202,8 +202,8 @@ public class Estadistica extends javax.swing.JDialog {
 
         lblEsNivel.setFont(new java.awt.Font("Fairview Small Caps", 0, 24)); // NOI18N
         lblEsNivel.setForeground(new java.awt.Color(255, 255, 255));
-        lblEsNivel.setText("Nivel");
-        pnlEstadistica.add(lblEsNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, -1, -1));
+        lblEsNivel.setText("Experiencia");
+        pnlEstadistica.add(lblEsNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 480, -1, -1));
 
         lblEsNiveles.setFont(new java.awt.Font("Fairview Small Caps", 0, 48)); // NOI18N
         lblEsNiveles.setForeground(new java.awt.Color(220, 94, 94));

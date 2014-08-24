@@ -123,7 +123,7 @@ public class DatosJugador extends javax.swing.JDialog {
                     .addGroup(pnlSelAliasLayout.createSequentialGroup()
                         .addComponent(btnSalirAlias)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jcMousePanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))
+                    .addComponent(jcMousePanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(scrollAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -164,7 +164,7 @@ public class DatosJugador extends javax.swing.JDialog {
         lblNivel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNivel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/perfil/glasses.png"))); // NOI18N
         lblNivel.setText("90");
-        lblNivel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Nivel", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Patrick Hand SC", 0, 18), new java.awt.Color(102, 102, 102))); // NOI18N
+        lblNivel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Experiencia", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Patrick Hand SC", 0, 18), new java.awt.Color(102, 102, 102))); // NOI18N
         lblNivel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblNivel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         pnlInferior.add(lblNivel);

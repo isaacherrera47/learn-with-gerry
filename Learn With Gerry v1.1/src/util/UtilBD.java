@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * @author Isaac
  */
 public class UtilBD {
-    
+
     public boolean cargarPerfil(String nombreUsuario, String password) {
         try {
             ConexionBD.abrirConexion();
@@ -96,29 +96,44 @@ public class UtilBD {
             ps.setString(1, idUsuario);
             ps.setInt(2, id);
             ps.executeUpdate();
-            PerfilCarga.setLogros(PerfilCarga.getLogros()+1);
+            PerfilCarga.setLogros(PerfilCarga.getLogros() + 1);
+            aumentarNivel(idUsuario);
         } catch (SQLException ex) {
             Logger.getLogger(UtilLogro.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             ConexionBD.cerrarConexion();
         }
     }
-    
-    public static boolean comprobarLogroUsuario(String user, int idLogro){
+
+    public static boolean comprobarLogroUsuario(String user, int idLogro) {
         try {
             ConexionBD.abrirConexion();
-            String sql="CALL comprobarLogro(?,?)";
+            String sql = "CALL comprobarLogro(?,?)";
             PreparedStatement ps = ConexionBD.con.prepareCall(sql);
             ps.setString(1, user);
             ps.setInt(2, idLogro);
-            ResultSet rs= ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
             return rs.first();
         } catch (SQLException ex) {
             Logger.getLogger(UtilBD.class.getName()).log(Level.SEVERE, null, ex);
-        } finally{
+        } finally {
             ConexionBD.cerrarConexion();
         }
         return true;
+    }
+
+    private static void aumentarNivel(String idUsuario) {
+        try {
+            String sql = "update usuario set nivel = ? where user = ?";
+            PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
+            ps.setInt(1, (PerfilCarga.getNivel() + 7));
+            ps.setString(2, idUsuario);
+            if (ps.executeUpdate() == 1) {
+                PerfilCarga.setNivel(PerfilCarga.getNivel() + 7);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
