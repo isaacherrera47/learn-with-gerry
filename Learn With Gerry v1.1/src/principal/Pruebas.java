@@ -73,6 +73,8 @@ public class Pruebas extends javax.swing.JDialog {
         scrollPrueba.setBackground(new java.awt.Color(255, 255, 255));
 
         pnlPrueba.setBackground(new java.awt.Color(102, 102, 153));
+        pnlPrueba.setMinimumSize(new java.awt.Dimension(642, 300));
+        pnlPrueba.setPreferredSize(new java.awt.Dimension(642, 300));
         pnlPrueba.setLayout(new org.jdesktop.swingx.VerticalLayout());
         scrollPrueba.setViewportView(pnlPrueba);
 
@@ -87,7 +89,7 @@ public class Pruebas extends javax.swing.JDialog {
                         .addComponent(lblImagenLog))
                     .addComponent(txtImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(scrollPrueba, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE))
+                .addComponent(scrollPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
