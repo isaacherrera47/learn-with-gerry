@@ -121,20 +121,6 @@ public abstract class UtilLogro implements Runnable {
 
     public abstract void desatarLogro();
 
-    public void insertarLogroUsuario(String nombreUsuario, int idLogro) {
-        try {
-            ConexionBD.abrirConexion();
-            String sql = "INSERT INTO desbloqueado VALUES(?,?)";
-            PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
-            ps.setString(1, nombreUsuario);
-            ps.setInt(2, idLogro);
-            ps.executeUpdate();
-            ConexionBD.cerrarConexion();
-        } catch (SQLException ex) {
-            Logger.getLogger(UtilLogro.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     public void iniciarServicio() {
         t = new Thread(this);
         estadoServicio = true;
