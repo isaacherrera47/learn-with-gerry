@@ -35,6 +35,7 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
         extras = new UtilVentana(this);
         tm = new Temporizador(pbTiempo, 2, 0, 30);
         agregarPaneles(tipo);
+        tm.iniciarCronometro();
         hilosFondo();
         serviciosAlFondo();
         extras.maximizarPantalla();
@@ -57,53 +58,24 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
         setMinimumSize(new java.awt.Dimension(1200, 700));
         setUndecorated(true);
         setResizable(false);
-        addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                formComponentShown(evt);
-            }
-        });
 
         pnlFondo.setBackground(new java.awt.Color(255, 102, 102));
+        pnlFondo.setLayout(new java.awt.BorderLayout());
 
         pnlPrincipal.setOpaque(false);
         pnlPrincipal.setLayout(new java.awt.GridLayout(4, 5, 5, 5));
+        pnlFondo.add(pnlPrincipal, java.awt.BorderLayout.CENTER);
 
         pbTiempo.setForeground(new java.awt.Color(255, 102, 102));
         pbTiempo.setBorderPainted(false);
         pbTiempo.setString(" ");
         pbTiempo.setStringPainted(true);
-
-        javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
-        pnlFondo.setLayout(pnlFondoLayout);
-        pnlFondoLayout.setHorizontalGroup(
-            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 1166, Short.MAX_VALUE)
-                    .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(pbTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        pnlFondoLayout.setVerticalGroup(
-            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(pbTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        pnlFondo.add(pbTiempo, java.awt.BorderLayout.PAGE_START);
 
         getContentPane().add(pnlFondo, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-        tm.iniciarCronometro();
-    }//GEN-LAST:event_formComponentShown
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -248,13 +220,13 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
         if (bonSeguidas >= 1 && paresSeguidos == 0) {
             paresSeguidos = 0;
             tm.agregarBonificacion(3);
-            notif.setText("BONUUUUUUUUUUUS! +3");
+            notif.setText("¡BONUUUUUUUUUUUS! +3");
             UtilPerfil.mandarNotificacion(ColorFondo.MENSAJE_BIEN, pbTiempo, notif);
         }
         if (errores == 4) {
             errores = 0;
             tm.agregarPenalizacion(3);
-            notif.setText("UUUUUUH! -3");
+            notif.setText("¡UUUUUUH! -3");
             UtilPerfil.mandarNotificacion(ColorFondo.MENSAJE_BIEN, pbTiempo, notif);
         }
     }
