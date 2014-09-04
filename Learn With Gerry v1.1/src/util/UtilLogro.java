@@ -128,7 +128,7 @@ public abstract class UtilLogro implements Runnable {
             PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
             ps.setString(1, nombreUsuario);
             ps.setInt(2, idLogro);
-            ps.execute();
+            ps.executeUpdate();
             ConexionBD.cerrarConexion();
         } catch (SQLException ex) {
             Logger.getLogger(UtilLogro.class.getName()).log(Level.SEVERE, null, ex);

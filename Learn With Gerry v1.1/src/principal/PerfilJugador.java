@@ -815,7 +815,7 @@ public class PerfilJugador extends javax.swing.JFrame {
         UtilPerfil.almacenarColorPerfil(PerfilCarga.getNick(), ColorFondo.obtenerIdPorColor(btnColor.getBackground()));
         if (!UtilBD.comprobarLogroUsuario(PerfilCarga.getNick(), 2) && ColorFondo.obtenerIdPorColor(btnColor.getBackground()) != 3) {
             UtilPerfil.mandarNotificacionLogro(avatar, new PopupLogro("perro", "A lo Leonardo Da Vinci", "Cambia los colores de la pantalla principal"));
-            UtilBD.desatarLogroID(2, PerfilCarga.getNick());
+            UtilBD.desatarLogroID(2, PerfilCarga.getNick(),7);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1002,7 +1002,7 @@ public class PerfilJugador extends javax.swing.JFrame {
 
     private void avatarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_avatarPropertyChange
         if(!UtilBD.comprobarLogroUsuario(PerfilCarga.getNick(), 3) && PerfilCarga.getCodAvatar() != 0){
-            UtilBD.desatarLogroID(3, PerfilCarga.getNick());
+            UtilBD.desatarLogroID(3, PerfilCarga.getNick(),7);
             UtilPerfil.almacenarAvatarPerfil(PerfilCarga.getNick(), PerfilCarga.getCodAvatar());
             UtilPerfil.mandarNotificacionLogro(avatar, new PopupLogro("cocodrilo", "¡Muy curioso!", "Cambia por primera vez el avatar"));
         }

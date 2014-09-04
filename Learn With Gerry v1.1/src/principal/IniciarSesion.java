@@ -310,10 +310,10 @@ public class IniciarSesion extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if (comprobarCampos()) {
             if (util.llenarPerfil(txtNombreUsuario.getText(), cbxAnimalFavorito.getSelectedItem().toString(), cbxGrado.getSelectedIndex(), txtNombre.getText(), txtApPaterno.getText(), txtApMaterno.getText()) == 1) {
-                UtilBD.desatarLogroID(1, txtNombreUsuario.getText());
+                UtilBD.desatarLogroID(1, txtNombreUsuario.getText(),7);
                 UtilPerfil.mandarNotificacionLogro(btnRegistrarse, new PopupLogro("oso", "¡Qué comience el juego!", "Inicia por primera vez una partida"));
                 cl.show(pnlContenedor, "crdSesion");
-                UtilBD.desatarLogroID((cbxGrado.getSelectedIndex() + 9), txtNombreUsuario.getText());
+                UtilBD.desatarLogroID((cbxGrado.getSelectedIndex() + 9), txtNombreUsuario.getText(),7);
                 UtilPerfil.mandarNotificacionLogro(btnInicioSesion, new PopupLogro("leon", "¡Empezando por aquí!", "Inicia un grado en el juego"));
                 borrarCampos();
                 pnlInicioSesion.removeAll();

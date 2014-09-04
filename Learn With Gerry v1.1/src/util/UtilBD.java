@@ -88,7 +88,7 @@ public class UtilBD {
         return 0;
     }
 
-    public static void desatarLogroID(int id, String idUsuario) {
+    public static void desatarLogroID(int id, String idUsuario,int cantidad) {
         try {
             ConexionBD.abrirConexion();
             String sql = "INSERT INTO desbloqueado VALUES (?,?)";
@@ -97,7 +97,7 @@ public class UtilBD {
             ps.setInt(2, id);
             ps.executeUpdate();
             PerfilCarga.setLogros(PerfilCarga.getLogros() + 1);
-            aumentarNivel(idUsuario);
+            aumentarNivel(idUsuario,cantidad);
         } catch (SQLException ex) {
             Logger.getLogger(UtilLogro.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -122,14 +122,14 @@ public class UtilBD {
         return true;
     }
 
-    private static void aumentarNivel(String idUsuario) {
+    public static void aumentarNivel(String idUsuario,int cantidad) {
         try {
             String sql = "update usuario set nivel = ? where user = ?";
             PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
-            ps.setInt(1, (PerfilCarga.getNivel() + 7));
+            ps.setInt(1, (PerfilCarga.getNivel() + cantidad));
             ps.setString(2, idUsuario);
             if (ps.executeUpdate() == 1) {
-                PerfilCarga.setNivel(PerfilCarga.getNivel() + 7);
+                PerfilCarga.setNivel(PerfilCarga.getNivel() + cantidad);
             }
         } catch (SQLException ex) {
             Logger.getLogger(UtilBD.class.getName()).log(Level.SEVERE, null, ex);
