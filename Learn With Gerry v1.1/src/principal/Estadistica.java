@@ -335,8 +335,7 @@ public class Estadistica extends javax.swing.JDialog {
             }
             ConexionBD.abrirConexion();
             int l;
-            String sql="SELECT count(idPrueba) as 'Pruebas Hechas' FROM pruebausuario\n" +
-                    "where Estado = 1;";
+            String sql="SELECT distinct IDPrueba as 'Pruebas Hechas' from pruebausuario where estado = 1";
             PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             rs.first();
@@ -363,7 +362,8 @@ public class Estadistica extends javax.swing.JDialog {
             ConexionBD.cerrarConexion();
             
               ConexionBD.abrirConexion();
-            String SQL="SELECT COUNT(ID) as 'Total Pruebas' FROM prueba";
+            if(PerfilCarga.getGrado().equals("Primero")){
+              String SQL="SELECT COUNT(ID) as 'Total Pruebas' FROM prueba";
             PreparedStatement pst = ConexionBD.con.prepareStatement(SQL);
             ResultSet rst = pst.executeQuery();
             rst.first();
@@ -372,6 +372,18 @@ public class Estadistica extends javax.swing.JDialog {
                 lblEsPruebasTotales.setText(String.valueOf("0"+dato));
             }else{
                 lblEsPruebasTotales.setText(String.valueOf(dato));
+            }  
+                }else{
+                String SQL="SELECT COUNT(ID) as 'Total Pruebas' FROM prueba WHERE IDRol = 2";
+            PreparedStatement pst = ConexionBD.con.prepareStatement(SQL);
+            ResultSet rst = pst.executeQuery();
+            rst.first();
+            int dato = rst.getInt("Total Pruebas");
+            if(dato<=9){
+                lblEsPruebasTotales.setText(String.valueOf("0"+dato));
+            }else{
+                lblEsPruebasTotales.setText(String.valueOf(dato));
+            }
             }
               ConexionBD.cerrarConexion();
         } catch (SQLException ex) {
