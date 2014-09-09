@@ -34,7 +34,7 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
     public Memorama(String tipo) {
         initComponents();
         extras = new UtilVentana(this);
-        tm = new Temporizador(pbTiempo, 2, 0, 30);
+        tm = new Temporizador(pbTiempo, 2, 1, 10);
         agregarPaneles(tipo);
         tm.iniciarCronometro();
         hilosFondo();
@@ -52,7 +52,7 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
         pbTiempo = new javax.swing.JProgressBar();
 
         notif.setFont(new java.awt.Font("Patrick Hand SC", 0, 18)); // NOI18N
-        notif.setForeground(new java.awt.Color(102, 102, 102));
+        notif.setForeground(new java.awt.Color(255, 255, 255));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -188,11 +188,23 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
         if (!tm.isCronometroActivo()) {
             if (realizado) {
                 registrarPrueba(1);
+                ConexionBD.abrirConexion();
+                UtilBD.aumentarNivel(PerfilCarga.getNick(), 10);
+                ConexionBD.cerrarConexion();
             } else {
                 registrarPrueba(0);
             }
             servicioLogro.detenerServicio();
             detenerServicios();
+        } else {
+            if (realizado) {
+                registrarPrueba(1);
+                ConexionBD.abrirConexion();
+                UtilBD.aumentarNivel(PerfilCarga.getNick(), 10);
+                ConexionBD.cerrarConexion();
+                servicioLogro.detenerServicio();
+                detenerServicios();
+            }
         }
     }
 
@@ -240,37 +252,42 @@ public class Memorama extends javax.swing.JFrame implements Memorizable, Jugable
 
                 if (bonSeguidas == 3) {
                     if (!servicioLogro.listaDesbloqueados.contains(17)) {
-                        UtilBD.desatarLogroID(17, PerfilCarga.getNick(),7);
+                        UtilBD.desatarLogroID(17, PerfilCarga.getNick(), 7);
                         UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala",
                                 servicioLogro.listaLogros.get(17).getNombre(), servicioLogro.listaLogros.get(17).getDescripcion()));
+                        servicioLogro.listaDesbloqueados.add(17);
                     }
                 }
                 if (tm.getTipoTemp() == 2 && tm.getSegundos() <= 6 && realizado) {
                     if (!servicioLogro.listaDesbloqueados.contains(16)) {
-                        UtilBD.desatarLogroID(16, PerfilCarga.getNick(),7);
+                        UtilBD.desatarLogroID(16, PerfilCarga.getNick(), 7);
                         UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(16).getNombre(),
                                 servicioLogro.listaLogros.get(16).getDescripcion()));
+                        servicioLogro.listaDesbloqueados.add(16);
                     }
                 }
-                if (!tm.isCronometroActivo() && contadorGanador == pares - 1) {
+                if (!tm.isCronometroActivo() && contadorGanador == (pares - 1)) {
                     if (!servicioLogro.listaDesbloqueados.contains(18)) {
-                        UtilBD.desatarLogroID(18,PerfilCarga.getNick(),7);
+                        UtilBD.desatarLogroID(18, PerfilCarga.getNick(), 7);
                         UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(18).getNombre(),
                                 servicioLogro.listaLogros.get(18).getDescripcion()));
+                        servicioLogro.listaDesbloqueados.add(18);
                     }
                 }
                 if (tm.getTipoTemp() == 1 && (tm.getSegundos() <= 59 && tm.getMinutos() == 0)) {
                     if (!servicioLogro.listaDesbloqueados.contains(19)) {
-                        UtilBD.desatarLogroID(19, PerfilCarga.getNick(),7);
+                        UtilBD.desatarLogroID(19, PerfilCarga.getNick(), 7);
                         UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(19).getNombre(),
                                 servicioLogro.listaLogros.get(19).getDescripcion()));
+                        servicioLogro.listaDesbloqueados.add(19);
                     }
                 }
                 if (tm.getPenalizaciones() == 0 && !tm.isCronometroActivo()) {
                     if (!servicioLogro.listaDesbloqueados.contains(21)) {
-                        UtilBD.desatarLogroID(21,PerfilCarga.getNick(),7);
+                        UtilBD.desatarLogroID(21, PerfilCarga.getNick(), 7);
                         UtilPerfil.mandarNotificacionLogro(pbTiempo, new PopupLogro("koala", servicioLogro.listaLogros.get(21).getNombre(),
                                 servicioLogro.listaLogros.get(21).getDescripcion()));
+                        servicioLogro.listaDesbloqueados.add(21);
                     }
                 }
             }
