@@ -38,8 +38,6 @@ public class DescripcionPrueba extends javax.swing.JPanel {
         btnGTipo = new javax.swing.ButtonGroup();
         lblTitulo = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
-        rdbRegresivo = new javax.swing.JRadioButton();
-        rdbNormal = new javax.swing.JRadioButton();
         btnJugar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 153, 153));
@@ -54,21 +52,6 @@ public class DescripcionPrueba extends javax.swing.JPanel {
         lblDescripcion.setFont(new java.awt.Font("Fairview Small Caps", 0, 24)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setText("Descripcion");
-
-        btnGTipo.add(rdbRegresivo);
-        rdbRegresivo.setFont(new java.awt.Font("Fairview Small Caps", 0, 24)); // NOI18N
-        rdbRegresivo.setForeground(new java.awt.Color(255, 255, 255));
-        rdbRegresivo.setSelected(true);
-        rdbRegresivo.setText("Regresivo");
-        rdbRegresivo.setFocusPainted(false);
-        rdbRegresivo.setOpaque(false);
-
-        btnGTipo.add(rdbNormal);
-        rdbNormal.setFont(new java.awt.Font("Fairview Small Caps", 0, 24)); // NOI18N
-        rdbNormal.setForeground(new java.awt.Color(255, 255, 255));
-        rdbNormal.setText("Normal");
-        rdbNormal.setFocusPainted(false);
-        rdbNormal.setOpaque(false);
 
         btnJugar.setBackground(new java.awt.Color(102, 102, 102));
         btnJugar.setFont(new java.awt.Font("Fairview Small Caps", 0, 24)); // NOI18N
@@ -90,21 +73,17 @@ public class DescripcionPrueba extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rdbRegresivo, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rdbNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(198, 198, 198)
                         .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(168, 168, 168)
-                        .addComponent(btnJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,13 +92,9 @@ public class DescripcionPrueba extends javax.swing.JPanel {
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(rdbRegresivo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rdbNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -134,7 +109,5 @@ public class DescripcionPrueba extends javax.swing.JPanel {
     private javax.swing.JButton btnJugar;
     public javax.swing.JLabel lblDescripcion;
     public javax.swing.JLabel lblTitulo;
-    private javax.swing.JRadioButton rdbNormal;
-    private javax.swing.JRadioButton rdbRegresivo;
     // End of variables declaration//GEN-END:variables
 }
