@@ -949,7 +949,7 @@ public class PerfilJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGradosActionPerformed
 
     private void btnPruebasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPruebasActionPerformed
-        new Pruebas(this,true).setVisible(true);
+        new Pruebas(this,true);
     }//GEN-LAST:event_btnPruebasActionPerformed
 
     private void dlgOpcionesComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_dlgOpcionesComponentShown
