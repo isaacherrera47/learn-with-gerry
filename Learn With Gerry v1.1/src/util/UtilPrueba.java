@@ -28,25 +28,31 @@ public class UtilPrueba {
         listaPruebas= new ArrayList<>();
     }
     
-     public static void obtenerPrueba(String grado, ArrayList listaPruebas){
+     public static boolean obtenerPrueba(String grado, ArrayList listaPruebas) {
         try {
             ConexionBD.abrirConexion();
-            String sql="CALL pruebasGrado(?)";
+            String sql = "CALL pruebasGrado(?)";
             PreparedStatement ps = ConexionBD.con.prepareCall(sql);
             ps.setInt(1, obtenGradoNumero(grado));
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                Prueba p = new Prueba();
-                p.setIdPrueba(rs.getInt("ID"));
-                p.setNombre(rs.getString("Nombre"));
-                p.setTipo(rs.getString("Tipo"));
-                p.setDescripcion(rs.getString("Descripcion"));
-                listaPruebas.add(p);
+            if (rs.first()) {
+                do {
+                    Prueba p = new Prueba();
+                    p.setIdPrueba(rs.getInt("ID"));
+                    p.setNombre(rs.getString("Nombre"));
+                    p.setTipo(rs.getString("Tipo"));
+                    p.setDescripcion(rs.getString("Descripcion"));
+                    listaPruebas.add(p);
+                } while (rs.next());
+                ConexionBD.cerrarConexion();
+                return true;
             }
             ConexionBD.cerrarConexion();
+            
         } catch (SQLException ex) {
             Logger.getLogger(UtilPrueba.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return false;
         
         
     }

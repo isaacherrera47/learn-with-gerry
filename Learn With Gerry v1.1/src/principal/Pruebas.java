@@ -10,6 +10,7 @@ import clases.PerfilCarga;
 import clases.Prueba;
 import extras.DescripcionPrueba;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import util.UtilPrueba;
 
 /**
@@ -26,14 +27,19 @@ public class Pruebas extends javax.swing.JDialog {
         cargarPruebas();
     }
     
-    private void cargarPruebas(){
-        UtilPrueba.obtenerPrueba(PerfilCarga.getGrado(), lista);
-        DescripcionPrueba prueba;
-        for (int i = 0; i < lista.size(); i++) {
-            prueba = new DescripcionPrueba(lista.get(i).getIdPrueba(),this);
-            prueba.lblTitulo.setText(lista.get(i).getNombre());
-            prueba.lblDescripcion.setText(lista.get(i).getDescripcion());
-            pnlPrueba.add(prueba);
+    private void cargarPruebas() {
+        if (UtilPrueba.obtenerPrueba(PerfilCarga.getGrado(), lista)) {
+            DescripcionPrueba prueba;
+            for (int i = 0; i < lista.size(); i++) {
+                prueba = new DescripcionPrueba(lista.get(i).getIdPrueba(), this);
+                prueba.lblTitulo.setText(lista.get(i).getNombre());
+                prueba.lblDescripcion.setText(lista.get(i).getDescripcion());
+                pnlPrueba.add(prueba);
+                setVisible(true);
+            }
+        }else{
+            dispose();
+            JOptionPane.showMessageDialog(null, "No hay pruebas disponibles para este grado","UPS...", JOptionPane.ERROR_MESSAGE);
         }
     }
 

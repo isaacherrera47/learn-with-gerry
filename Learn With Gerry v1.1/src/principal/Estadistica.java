@@ -335,8 +335,9 @@ public class Estadistica extends javax.swing.JDialog {
             }
             ConexionBD.abrirConexion();
             int l;
-            String sql="SELECT distinct IDPrueba as 'Pruebas Hechas' from pruebausuario where estado = 1";
-            PreparedStatement ps = ConexionBD.con.prepareStatement(sql);
+            String sql="CALL pruebasHechas(?)";
+            PreparedStatement ps = ConexionBD.con.prepareCall(sql);
+            ps.setString(1, PerfilCarga.getNick());
             ResultSet rs = ps.executeQuery();
             rs.first();
             l=rs.getInt("Pruebas Hechas");
